@@ -23,7 +23,7 @@ const Banner = () => {
                         <Box className=" w-full sm:w-3/5" >
                             <h1 className="mb-5 text-3xl sm:text-5xl font-bold">Hi , <br /> I am Asif Ahammed</h1>
                             <h1 className="mb-5 text-3xl sm:text-5xl font-bold">A dedicated Web Developer </h1>
-                            <p className="mb-5">I specialize in designing and developing websites that not only look great but also help businesses generate leads and sales.</p>
+                            <p className="mb-5">As a Junior Web Developer .I want want to learn Many things. </p>
                             <Box className="flex items-center justify-start gap-3 mb-8">
                                 <Link href="https://www.facebook.com/1nothing90" >
                                     <Facebook />
