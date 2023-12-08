@@ -1,10 +1,11 @@
-import React from 'react';
+import Banner from "@/components/Banner/Banner";
+import { Box } from "@mui/material";
 
 const HomePage = () => {
   return (
-    <div>
-      This Is Home Page
-    </div>
+    <Box component="section" >
+      <Banner></Banner>
+    </Box>
   );
 };
 

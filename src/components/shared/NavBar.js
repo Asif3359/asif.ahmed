@@ -66,60 +66,63 @@ const NavBar = (props) => {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ display: 'flex' }}  >
-            <CssBaseline />
-            <AppBar sx={{backgroundColor:"black"}} component="nav" >
-                <Toolbar className='flex justify-between items-center' >
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-                    >
-                        <IconButton aria-label="delete">
-                            <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
-                        </IconButton>
-                    </Typography>
-                    <Box sx={{ display: { xs: 'none', sm: 'flex', gap:20 } }}>
-                        {navItems.map((item) => (
-                            <Link href={item.link} key={item} sx={{ color: '#fff' }} className='hover:underline ' >
-                                {item.item}
-                            </Link>
-                        ))}
-                    </Box>
-                    <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
-                        <IconButton aria-label="delete">
-                            <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
-                        </IconButton>
-                    </Box>
-                </Toolbar>
-            </AppBar>
-            <nav>
-                <Drawer
-                    container={container}
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
-                    sx={{
-                        display: { xs: 'block', sm: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                >
-                    {drawer}
-                </Drawer>
-            </nav>
+        <Box >
+            <Box sx={{ display: 'flex' }}  >
+                <CssBaseline />
+                <AppBar component="nav" sx={{ backgroundColor: "black" }}>
+                        <Toolbar className='flex justify-between items-center container mx-auto' >
+                            <IconButton
+                                color="inherit"
+                                aria-label="open drawer"
+                                edge="start"
+                                onClick={handleDrawerToggle}
+                                sx={{ mr: 2, display: { sm: 'none' } }}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Typography
+                                variant="h6"
+                                component="div"
+                                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                            >
+                                <IconButton aria-label="delete">
+                                    <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
+                                </IconButton>
+                            </Typography>
+                            <Box sx={{ display: { xs: 'none', sm: 'flex', gap: 20 } }}>
+                                {navItems.map((item) => (
+                                    <Link href={item.link} key={item} sx={{ color: '#fff' }} className='hover:underline ' >
+                                        {item.item}
+                                    </Link>
+                                ))}
+                            </Box>
+                            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
+                                <IconButton aria-label="delete">
+                                    <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
+                                </IconButton>
+                            </Box>
+                        </Toolbar>
+                </AppBar>
 
+                <nav>
+                    <Drawer
+                        container={container}
+                        variant="temporary"
+                        open={mobileOpen}
+                        onClose={handleDrawerToggle}
+                        ModalProps={{
+                            keepMounted: true, // Better open performance on mobile.
+                        }}
+                        sx={{
+                            display: { xs: 'block', sm: 'none' },
+                            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                        }}
+                    >
+                        {drawer}
+                    </Drawer>
+                </nav>
+
+            </Box>
         </Box>
     );
 }

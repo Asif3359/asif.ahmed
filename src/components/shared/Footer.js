@@ -35,7 +35,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Footer = () => {
     return (
-        <Box sx={{ width: "full", backgroundColor: "black" }} >
+        <Box sx={{ width: "full", backgroundColor: "black",paddingY:10 }} >
             <Container sx={{ display: "flex", justifyContent: "center" }} className=" text-white p-3">
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
