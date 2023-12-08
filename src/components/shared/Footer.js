@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import { Button, Container, IconButton } from '@mui/material';
 import Image from 'next/image';
 import myImage from '@/assets/my-image.jpg'
-import { Facebook } from '@mui/icons-material';
+import { Email, Facebook, GitHub, Instagram, LinkedIn, Twitter } from '@mui/icons-material';
 import Link from 'next/link';
 
 const navItems = [
@@ -35,7 +35,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Footer = () => {
     return (
-        <Box sx={{ width: "full", backgroundColor: "black",paddingY:10 }} >
+        <Box sx={{ width: "full", backgroundColor: "black", paddingY: 10 }} >
             <Container sx={{ display: "flex", justifyContent: "center" }} className=" text-white p-3">
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
@@ -52,16 +52,27 @@ const Footer = () => {
                                         </Link>
                                     ))}
                                 </Box>
-                                <Box sx={{ display: 'flex' }}>
-                                    <IconButton>
-                                        <Facebook sx={{ color: "white" }} ></Facebook>
-                                    </IconButton>
-                                    <IconButton>
-                                        <Facebook sx={{ color: "white" }} ></Facebook>
-                                    </IconButton>
-                                    <IconButton>
-                                        <Facebook sx={{ color: "white" }} ></Facebook>
-                                    </IconButton>
+                                <Box sx={{ display: 'flex', gap: 2, marginTop: 3 }}>
+                                    <Link href="https://www.facebook.com/1nothing90" >
+                                        <Facebook />
+                                    </Link>
+                                    <Link href="/" >
+                                        <Instagram />
+                                    </Link>
+                                    <Link href="/" >
+                                        <Twitter />
+                                    </Link>
+                                    <Link href="https://github.com/Asif3359" >
+                                        <GitHub />
+                                    </Link>
+                                    <Link href="https://www.linkedin.com/in/asif-ahammed-622a85264/" >
+                                        <LinkedIn />
+                                    </Link>
+                                </Box>
+                                <Box sx={{ display: 'flex', gap: 2, marginTop: 3 }}>
+                                    <Link href="mailto:asifahammendishst@gmail.com" >
+                                        <Email /> asifahammendishst@gmail.com
+                                    </Link>
                                 </Box>
                             </Box>
 
