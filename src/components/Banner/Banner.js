@@ -9,6 +9,7 @@ import EastIcon from '@mui/icons-material/East';
 import AttachmentIcon from '@mui/icons-material/Attachment';
 
 import dynamic from 'next/dynamic'
+import DownloadLink from '../DownloadLink/DownloadLink';
 
 const NoSSR = dynamic(() => import("@/components/AnalogClock/AnalohgClock"), { ssr: false })
 
@@ -46,7 +47,7 @@ const Banner = () => {
                                     <MailOutlineIcon /> Contact
                                 </Link>
                                 <Link href="/mycv" download="./AsifAhammed.pdf" className='btn btn-sm text-white hover:text-black hover:bg-white  btn-outline' >
-                                    <AttachmentIcon /> Resume
+                                     <DownloadLink></DownloadLink>
                                 </Link>
                                 <Link href="/" className='btn btn-sm text-white hover:text-black hover:bg-white  btn-outline' >
                                     <EastIcon /> Project
