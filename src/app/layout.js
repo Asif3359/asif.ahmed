@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           <NavBar></NavBar>
         </Box>
         <Toolbar />
-        <Box component="main" sx={{ margin: "auto", minHeight: "100vh" }}>
+        <Box component="main" sx={{ margin: "auto", minHeight: "100vh" }}  >
           {children}
         </Box>
         <Box component="footer" >

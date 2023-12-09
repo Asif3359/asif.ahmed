@@ -19,7 +19,8 @@
     "react-dom": "^18",
     "react-live-clock": "^6.1.18",
     "react-parallax": "^3.5.1",
-    "react-use-downloader": "^1.2.4"
+    "react-use-downloader": "^1.2.4",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

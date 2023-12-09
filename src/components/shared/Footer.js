@@ -12,14 +12,17 @@ import Link from 'next/link';
 
 const navItems = [
     {
+        "id":1,
         "item": "Home",
         "link": "/"
     },
     {
+        "id":2,
         "item": "Contact",
         "link": "/contact"
     },
     {
+        "id":3,
         "item": "About",
         "link": "/about"
     }
@@ -42,12 +45,17 @@ const Footer = () => {
 
                         <Grid item xs={4}>
                             <Image src={myImage} width={70} height={70} alt='my image' className='rounded-full' ></Image>
+                            <Box sx={{ display: 'flex', gap: 2, marginTop: 3 }}>
+                                <Link href="mailto:asifahammendishst@gmail.com" >
+                                    <Email /> asifahammendishst@gmail.com
+                                </Link>
+                            </Box>
                         </Grid>
                         <Grid item xs={8} >
                             <Box className=" flex flex-col justify-center items-center" >
                                 <Box sx={{ display: 'flex', gap: 2 }}>
                                     {navItems.map((item) => (
-                                        <Link href={item.link} key={item} sx={{ color: '#fff' }} className='hover:underline ' >
+                                        <Link href={item.link} key={item.id} sx={{ color: '#fff' }} className='hover:underline ' >
                                             {item.item}
                                         </Link>
                                     ))}
@@ -69,17 +77,16 @@ const Footer = () => {
                                         <LinkedIn />
                                     </Link>
                                 </Box>
-                                <Box sx={{ display: 'flex', gap: 2, marginTop: 3 }}>
-                                    <Link href="mailto:asifahammendishst@gmail.com" >
-                                        <Email /> asifahammendishst@gmail.com
-                                    </Link>
-                                </Box>
+
                             </Box>
 
                         </Grid>
                     </Grid>
                 </Box>
             </Container>
+            {/* <Container sx={{ display: "flex", justifyContent: "center" }} className=" text-white p-3">
+
+            </Container> */}
         </Box>
     );
 };

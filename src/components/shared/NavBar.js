@@ -22,14 +22,17 @@ import Link from 'next/link';
 const drawerWidth = 240;
 const navItems = [
     {
+        "id":1,
         "item": "Home",
         "link": "/"
     },
     {
+        "id":2,
         "item": "Contact",
         "link": "/contact"
     },
     {
+        "id":3,
         "item": "About",
         "link": "/about"
     }
@@ -51,9 +54,9 @@ const NavBar = (props) => {
             <Divider />
             <List>
                 {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
+                    <ListItem key={item.id} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
-                            <Link href={item.link} key={item} sx={{ color: '#fff' }} className='hover:underline ' >
+                            <Link href={item.link} key={item.id} sx={{ color: '#fff' }} className='hover:underline ' >
                                 {item.item}
                             </Link>
                         </ListItemButton>
@@ -91,7 +94,7 @@ const NavBar = (props) => {
                             </Typography>
                             <Box sx={{ display: { xs: 'none', sm: 'flex', gap: 20 } }}>
                                 {navItems.map((item) => (
-                                    <Link href={item.link} key={item} sx={{ color: '#fff' }} className='hover:underline ' >
+                                    <Link href={item.link} key={item.id} sx={{ color: '#fff' }} className='hover:underline ' >
                                         {item.item}
                                     </Link>
                                 ))}

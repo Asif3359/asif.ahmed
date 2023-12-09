@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -17,13 +17,13 @@ const NoSSR = dynamic(() => import("@/components/AnalogClock/AnalohgClock"), { s
 const Banner = () => {
 
     return (
-        <div className='bg-gradient-to-r from-[#00000094] '>
-            <div className="hero min-h-screen  bg-fixed hero-overlay opacity-90" style={{ backgroundImage: `url(${logo.src})`, backgroundSize: "cover", backgroundPosition: "center" }}>
+        <div className='bg-gradient-to-r from-[#00000094]  '>
+            <div className="hero min-h-[80vh]  bg-fixed hero-overlay opacity-90 py-3" style={{ backgroundImage: `url(${logo.src})`, backgroundSize: "cover", backgroundPosition: "center" }}>
                 <div className="container mx-auto px-2 ">
                     <div className="text-white w-full flex flex-col-reverse md:flex-row justify-between items-center gap-10 ">
                         <Box className=" w-full sm:w-3/5" >
-                            <h1 className="mb-5 text-3xl sm:text-5xl font-bold">Hi , <br /> I am Asif Ahammed</h1>
-                            <h1 className="mb-5 text-3xl sm:text-5xl font-bold">A dedicated Web Developer </h1>
+                        <Typography variant="h2" className="py-2 font-bold text-3xl sm:text-5xl  ">HI, I am Asif Ahammed</Typography>
+                            <Typography variant="h3" className="mb-5 text-3xl sm:text-5xl font-bold">A dedicated Web Developer </Typography>
                             <p className="mb-5">As a Junior Web Developer .I want want to learn Many things. </p>
                             <Box className="flex items-center justify-start gap-3 mb-8">
                                 <Link href="https://www.facebook.com/1nothing90" >
