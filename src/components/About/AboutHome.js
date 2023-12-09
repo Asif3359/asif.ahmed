@@ -2,13 +2,14 @@ import { Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import cover from "@/assets/AsifCover.png"
 
 const AboutHome = () => {
     return (
         <div className='container mx-auto my-5'>
             <div className='flex flex-col lg:flex-row gap-10 justify-between items-center p-5 '>
                 <div className='w-full lg:w-2/5 rounded-lg'>
-                    <Image className='rounded-lg' src="https://github.com/Asif3359/Asif3359/blob/main/img/Cover-Photo.png?raw=true" width={1000} height={400} alt="My Cover" />
+                    <Image className='rounded-lg' src={cover} width={1000} height={400} alt="My Cover" />
                 </div>
                 <div className='w-full lg:w-3/5'>
                     <div className="flex-1  md:text-left space-y-3">

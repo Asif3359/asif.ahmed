@@ -1,0 +1,85 @@
+{
+    "projects": [
+        {
+            "Title": "Comprehensive Community-Based Website Development",
+            "Description": "Our Comprehensive Community-Based Website project is a multifaceted digital platform designed to go beyond community engagement by introducing key features that enhance user experience and sustain the platform's growth. In addition to the previously mentioned features, the website incorporates.",
+            "ProjectDate": "2023-02-15",
+            "Tools": [
+                "HTML5",
+                "CSS3",
+                "TailwindCss",
+                "DaisyUi",
+                "JavaScript",
+                "React.js",
+                "MongoDb",
+                "Firebase"
+            ],
+            "LiveLink": "https://example.com/website-redesign",
+            "Features": [
+                "Authentication and Authorization",
+                "Login and Logout",
+                "Post, Like, Comment, Share, and Repost",
+                "Search Post",
+                "Dashboard",
+                "Announcements by Admin",
+                "Limited Post Functionality",
+                "Payment System",
+                "Subscription System"
+            ]
+        },
+        {
+            "Title": "Mobile App Development",
+            "Description": "Creating a cross-platform mobile app for both Android and iOS platforms.",
+            "ProjectDate": "2023-04-10",
+            "Tools": [
+                "HTML5",
+                "CSS3",
+                "TailwindCss",
+                "DaisyUi",
+                "JavaScript",
+                "React.js",
+                "MongoDb",
+                "Firebase"
+            ],
+            "LiveLink": "https://example.com/mobile-app",
+            "Features": [
+                "Authentication and Authorization",
+                "Login and Logout",
+                "Post, Like, Comment, Share, and Repost",
+                "Search Post",
+                "Dashboard",
+                "Announcements by Admin",
+                "Limited Post Functionality",
+                "Payment System",
+                "Subscription System"
+            ]
+        },
+        {
+            "Title": "Data Analysis Dashboard",
+            "Description": "Building a dashboard to visualize and analyze large datasets for business insights.",
+            "ProjectDate": "2023-06-20",
+            "Tools": [
+                "HTML5",
+                "CSS3",
+                "TailwindCss",
+                "DaisyUi",
+                "JavaScript",
+                "React.js",
+                "MongoDb",
+                "Firebase"
+            ],
+            "LiveLink": "https://example.com/data-dashboard",
+            "Features": [
+                "Authentication and Authorization",
+                "Login and Logout",
+                "Post, Like, Comment, Share, and Repost",
+                "Search Post",
+                "Dashboard",
+                "Announcements by Admin",
+                "Limited Post Functionality",
+                "Payment System",
+                "Subscription System"
+            ]
+        }
+    ]
+}
