@@ -32,6 +32,17 @@ export default function ProjectHome() {
                             </Box>
                         </Box>
                     </SwiperSlide>
+                    <SwiperSlide>
+                        <Box className="flex justify-between lg:items-center flex-col lg:flex-row ">
+                            <Box>
+                                <Typography variant='h2' >Project Title 2</Typography>
+                                <Typography variant='p' >Project description 2</Typography>
+                            </Box>
+                            <Box className='w-full rounded-lg'>
+                                <Image className='rounded-lg w-full' src="https://github.com/Asif3359/Asif3359/blob/main/img/Cover-Photo.png?raw=true" width={1000} height={400} alt="My Cover" />
+                            </Box>
+                        </Box>
+                    </SwiperSlide>
                 </Swiper>
             </div>
         </div>
