@@ -14,7 +14,7 @@ import Link from 'next/link';
 const ProjectHome = ({ Projects }) => {
 
 
-    console.log(Projects);
+    // console.log(Projects);
 
     return (
         <div className='container mx-auto my-6 '>
@@ -28,30 +28,33 @@ const ProjectHome = ({ Projects }) => {
                     className="mySwiper "
                 >
                     {
-                        Projects.slice().reverse().map((item) => <SwiperSlide className='' key={item._id}>
-                            <Box className="flex gap-5 justify-between lg:items-center flex-col lg:flex-row px-5 lg:px-10 min-h-[70vh] py-4 lg:py-10 ">
-                                <Box className=" space-y-4 w-full lg:w-3/5">
-                                    <Typography variant='h3' >{item.Title}</Typography>
+                        Projects.map((item) => <SwiperSlide className='' key={item._id}>
+                            <Box className="flex gap-5 lg:justify-between lg:items-center flex-col lg:flex-row px-5 lg:px-10 min-h-[80vh] py-4 lg:py-10 ">
+                                <Box className=" flex flex-col justify-between gap-2 w-full lg:w-3/5">
+                                    <Typography variant='h3' className='font-bold' >{item.Title}</Typography>
                                     <Typography variant='p' >{item.Description}</Typography>
-                                    <Typography>
+                                    <Typography className='flex justify-start gap-3'>
                                         <Link href={item.LiveLink} className='btn btn-sm text-black  hover:text-white hover:bg-black  btn-outline' >
                                             View Live Demo
+                                        </Link>
+                                        <Link href={`/${item._id}`} className='btn btn-sm text-black  hover:text-white hover:bg-black  btn-outline' >
+                                            See Details
                                         </Link>
                                     </Typography>
                                 </Box>
                                 <Swiper
-                                    slidesPerView={3}
-                                    spaceBetween={10}
+                                    slidesPerView={2.5}
+                                    spaceBetween={7}
                                     pagination={{
                                         clickable: true,
                                     }}
                                     modules={[Pagination]}
-                                    className="mySwiper w-full lg:w-2/5"
+                                    className="mySwiper w-full lg:w-3/4 min-h-fit bg-black  rounded-lg   "
                                 >
                                     {
-                                        item?.Images?.map((image, index) => <SwiperSlide key={index}>
-                                            <Box className='rounded-lg'>
-                                                <Image className='rounded-lg w-full ' src={image} width={1000} height={400} alt="My Cover" />
+                                        item?.Images?.map((image, index) => <SwiperSlide className='py-5 px-2 ' key={index}>
+                                            <Box className='rounded-lg border '>
+                                                <Image className='rounded-lg' src={image} width={400} height={600} alt="My Cover" />
                                             </Box>
                                         </SwiperSlide>)
                                     }

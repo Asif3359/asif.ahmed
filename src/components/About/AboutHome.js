@@ -17,7 +17,7 @@ const AboutHome = () => {
                         <p className='py-2'>
                             A highly motivated and detail-oriented Computer Science student at Bangladesh University of Business and Technology <Link href="https://www.bubt.edu.bd/" className=' text-blue-600 hover:underline' >(BUBT)</Link> with a strong foundation in programming languages including C, C++, and JavaScript. Eager to apply my academic knowledge and programming skills to real-world projects, contributing to innovative solutions and gaining practical experience in the field of Computer Science.
                         </p>
-                        <Link href="" className="btn bg-black text-white ">Learn More</Link>
+                        <Link href="" className="btn btn-sm hover:bg-black hover:text-white text-black bg-white border-black ">Learn More</Link>
                     </div>
                 </div>
             </div>
