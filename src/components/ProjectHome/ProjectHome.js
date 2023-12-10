@@ -29,7 +29,7 @@ const ProjectHome = ({ Projects }) => {
                 >
                     {
                         Projects.slice().reverse().map((item) => <SwiperSlide className='' key={item._id}>
-                            <Box className="flex gap-5 justify-between lg:items-center flex-col lg:flex-row px-5 lg:px-10 min-h-[70vh] py-4 lg:py-5 ">
+                            <Box className="flex gap-5 justify-between lg:items-center flex-col lg:flex-row px-5 lg:px-10 min-h-[70vh] py-4 lg:py-10 ">
                                 <Box className=" space-y-4 w-full lg:w-3/5">
                                     <Typography variant='h3' >{item.Title}</Typography>
                                     <Typography variant='p' >{item.Description}</Typography>
@@ -39,9 +39,25 @@ const ProjectHome = ({ Projects }) => {
                                         </Link>
                                     </Typography>
                                 </Box>
-                                <Box className='w-full lg:w-2/5 rounded-lg'>
-                                    <Image className='rounded-lg w-full ' src="https://github.com/Asif3359/Asif3359/blob/main/img/Cover-Photo.png?raw=true" width={1000} height={400} alt="My Cover" />
-                                </Box>
+                                <Swiper
+                                    slidesPerView={3}
+                                    spaceBetween={10}
+                                    pagination={{
+                                        clickable: true,
+                                    }}
+                                    modules={[Pagination]}
+                                    className="mySwiper w-full lg:w-2/5"
+                                >
+                                    {
+                                        item?.Images.map((image, index) => <SwiperSlide key={index}>
+                                            <Box className='rounded-lg'>
+                                                <Image className='rounded-lg w-full ' src={image} width={1000} height={400} alt="My Cover" />
+                                            </Box>
+                                        </SwiperSlide>)
+                                    }
+
+                                </Swiper>
+
                             </Box>
                         </SwiperSlide>)
                     }

@@ -25,7 +25,12 @@
             "Limited Post Functionality",
             "Payment System",
             "Subscription System"
-        ]
+        ],
+        "Images": [
+            "https://example.com/website-redesign/image1.jpg",
+            "https://example.com/website-redesign/image2.jpg",
+            "https://example.com/website-redesign/image3.jpg"
+          ]
     },
     {
         "Title": "Assignment Management System",
@@ -55,7 +60,12 @@
             "Give Feedback",
             "Check Status (Pending or Done)",
             "Give Marks"
-        ]
+        ],
+        "Images": [
+            "https://example.com/website-redesign/image1.jpg",
+            "https://example.com/website-redesign/image2.jpg",
+            "https://example.com/website-redesign/image3.jpg"
+          ]
     },
     {
         "Title": "Secure Car Sales Platform",
@@ -82,6 +92,11 @@
             "Take A Car",
             "Update Product Post",
             "Delete Product Post"
-        ]
+        ],
+        "Images": [
+            "https://example.com/website-redesign/image1.jpg",
+            "https://example.com/website-redesign/image2.jpg",
+            "https://example.com/website-redesign/image3.jpg"
+          ]
     }
 ]
