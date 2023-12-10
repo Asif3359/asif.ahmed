@@ -8,8 +8,14 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import Image from 'next/image';
 import { Box, Typography } from '@mui/material';
+import Link from 'next/link';
+// import useProjects from '../Hooks/useProjects';
 
-export default function ProjectHome() {
+const ProjectHome = ({ Projects }) => {
+
+
+    // console.log(Projects);
+
     return (
         <div className='container mx-auto my-6 '>
             <div>
@@ -19,32 +25,29 @@ export default function ProjectHome() {
                     }}
                     navigation={true}
                     modules={[Pagination, Navigation]}
-                    className="mySwiper min-h-[70vh]"
+                    className="mySwiper "
                 >
-                    <SwiperSlide>
-                        <Box className="flex justify-between lg:items-center flex-col lg:flex-row ">
-                            <Box>
-                                <Typography variant='h2' >Project Title</Typography>
-                                <Typography variant='p' >Project description</Typography>
+                    {
+                        Projects.slice().reverse().map((item) => <SwiperSlide className='' key={item._id}>
+                            <Box className="flex gap-5 justify-between lg:items-center flex-col lg:flex-row px-5 lg:px-10 min-h-[70vh] py-4 lg:py-5 ">
+                                <Box className=" space-y-4 w-full lg:w-3/5">
+                                    <Typography variant='h3' >{item.Title}</Typography>
+                                    <Typography variant='p' >{item.Description}</Typography>
+                                    <Typography>
+                                        <Link href={item.LiveLink} className='btn btn-sm text-black  hover:text-white hover:bg-black  btn-outline' >
+                                            View Live Demo
+                                        </Link>
+                                    </Typography>
+                                </Box>
+                                <Box className='w-full lg:w-2/5 rounded-lg'>
+                                    <Image className='rounded-lg w-full ' src="https://github.com/Asif3359/Asif3359/blob/main/img/Cover-Photo.png?raw=true" width={1000} height={400} alt="My Cover" />
+                                </Box>
                             </Box>
-                            <Box className='w-full rounded-lg'>
-                                <Image className='rounded-lg w-full' src="https://github.com/Asif3359/Asif3359/blob/main/img/Cover-Photo.png?raw=true" width={1000} height={400} alt="My Cover" />
-                            </Box>
-                        </Box>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Box className="flex justify-between lg:items-center flex-col lg:flex-row ">
-                            <Box>
-                                <Typography variant='h2' >Project Title 2</Typography>
-                                <Typography variant='p' >Project description 2</Typography>
-                            </Box>
-                            <Box className='w-full rounded-lg'>
-                                <Image className='rounded-lg w-full' src="https://github.com/Asif3359/Asif3359/blob/main/img/Cover-Photo.png?raw=true" width={1000} height={400} alt="My Cover" />
-                            </Box>
-                        </Box>
-                    </SwiperSlide>
+                        </SwiperSlide>)
+                    }
                 </Swiper>
             </div>
         </div>
     );
 }
+export default ProjectHome;
