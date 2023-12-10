@@ -14,7 +14,7 @@ import Link from 'next/link';
 const ProjectHome = ({ Projects }) => {
 
 
-    // console.log(Projects);
+    console.log(Projects);
 
     return (
         <div className='container mx-auto my-6 '>
@@ -49,7 +49,7 @@ const ProjectHome = ({ Projects }) => {
                                     className="mySwiper w-full lg:w-2/5"
                                 >
                                     {
-                                        item?.Images.map((image, index) => <SwiperSlide key={index}>
+                                        item?.Images?.map((image, index) => <SwiperSlide key={index}>
                                             <Box className='rounded-lg'>
                                                 <Image className='rounded-lg w-full ' src={image} width={1000} height={400} alt="My Cover" />
                                             </Box>
