@@ -18,6 +18,9 @@ const ProjectHome = ({ Projects }) => {
 
     return (
         <div className='container mx-auto my-6 '>
+            <Typography variant='h2' className='font-bold mt-5 ml-10' >My Projects </Typography>
+            <Typography variant='p' className='font-bold mt-5 ml-10' >You Can See All This Project </Typography>
+
             <div>
                 <Swiper
                     pagination={{

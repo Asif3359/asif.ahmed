@@ -43,8 +43,8 @@ const ContactForm = () => {
     };
 
     return (
-        <div className='container mx-auto  mt-10 py-4 w-full '>
-            <form onSubmit={handleSubmit} className='space-y-3 bg-gray-900 px-8  py-8 text-white' >
+        <div className='container mx-auto  mt-10 py-4 w-full rounded-lg '>
+            <form onSubmit={handleSubmit} className='space-y-3 bg-gray-900 px-8 rounded-lg   py-8 text-white' >
                 <div>
                     <label htmlFor="name" className='py-2' >Enter Your Name :</label>
                     <input
@@ -81,7 +81,7 @@ const ContactForm = () => {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        className='border-2 text-black border-black w-full rounded-lg px-2 py-3 h-64'
+                        className='border-2 text-black border-black w-full rounded-lg px-2 py-3 h-52'
                         placeholder='your Text - - - - -'
                     />
                 </div>

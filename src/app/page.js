@@ -3,10 +3,13 @@ import Banner from "@/components/Banner/Banner";
 import ContactForm from "@/components/ContactForm/ContactForm";
 import useProjects from "@/components/Hooks/useProjects";
 import ProjectHome from "@/components/ProjectHome/ProjectHome";
+import ResumeSection from "@/components/ResumeSection/ResumeSection";
+import WorkingTools from "@/components/WorkingTools/WorkingTools";
+import ContactDetails from "@/components/contactDetails/contactDetails";
 import { Box } from "@mui/material";
 
 const HomePage = async () => {
-  const Projects = await  useProjects();
+  const Projects = await useProjects();
 
   // console.log(Projects);
 
@@ -15,8 +18,12 @@ const HomePage = async () => {
       <Banner></Banner>
       <AboutHome></AboutHome>
       <ProjectHome Projects={Projects}></ProjectHome>
-      {/* <a href="https://raw.githubusercontent.com/Asif3359/Asif-Ahammed-Profile/167a12c39b095535d3f95d0fdadbc1d0af03f3e5/public/AsifAhammed.pdf"></a> */}
-      <ContactForm></ContactForm>
+      <WorkingTools></WorkingTools>
+      <ResumeSection></ResumeSection>
+      <div className=" container mx-auto flex justify-between items-start gap-10">
+        <ContactForm></ContactForm>
+        <ContactDetails></ContactDetails>
+      </div>
     </Box>
   );
 };
