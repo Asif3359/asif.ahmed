@@ -43,7 +43,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className='container mx-auto  mt-10 py-4 w-full rounded-lg '>
+        <div id='contact' className='container mx-auto  mt-10 py-4 w-full rounded-lg '>
             <form onSubmit={handleSubmit} className='space-y-3 bg-gray-900 px-8 rounded-lg   py-8 text-white' >
                 <div>
                     <label htmlFor="name" className='py-2' >Enter Your Name :</label>

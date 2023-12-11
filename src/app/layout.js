@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         <Box component="footer" >
           <Footer></Footer>
         </Box>
-      
+
       </body>
     </html>
   )

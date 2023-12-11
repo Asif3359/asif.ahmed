@@ -17,7 +17,7 @@ const ProjectHome = ({ Projects }) => {
     // console.log(Projects);
 
     return (
-        <div className='container mx-auto my-6 '>
+        <div className='container mx-auto my-6 ' id='project'>
             <Typography variant='h2' className='font-bold mt-5 lg:ml-10' >My Projects </Typography>
             <Typography variant='p' className='font-bold mt-5 ml-5 lg:ml-10' >You Can See All This Project </Typography>
 

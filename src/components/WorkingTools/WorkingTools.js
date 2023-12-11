@@ -22,52 +22,52 @@ const WorkingTools = () => {
                 <h2 className='text-4xl font-bold text-center'>My Working Tools</h2>
             </div>
             <Swiper
-                slidesPerView={5}
+                slidesPerView={4}
                 spaceBetween={40}
                 pagination={{
                     clickable: true,
                 }}
                 modules={[Pagination]}
-                className="mySwiper mt-5 py-4  max-w-[650px] mx-auto border-l-2 border-r-2 border-black "
+                className="mySwiper mt-5 py-4  max-w-[700px] min-h-[150px] lg:min-h-[200px] mx-auto border-l-2 border-r-2 border-black "
             >
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={JS} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full min-h-[80px] min-w-[80px] ' src={JS} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full min-h-[80px] min-w-[80px] ' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={NODEJS} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full min-h-[80px] min-w-[80px] ' src={NODEJS} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={MONGO2} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full min-h-[80px] min-w-[80px] ' src={MONGO2} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={EXPRESS} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full min-h-[80px] min-w-[80px] ' src={EXPRESS} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={HTML} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full min-h-[80px] min-w-[80px] ' src={HTML} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={CSS} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full min-h-[80px] min-w-[80px] ' src={CSS} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={Tailwind} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full min-h-[80px] min-w-[80px] ' src={Tailwind} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
             </Swiper>

@@ -11,7 +11,6 @@ const ContactDetails = () => {
             <h1>Email: asifahammednishst@gmail.com </h1>
             <h1>Phone: 01789846204</h1>
             <div>
-                <h2 className="text-2xl font-extrabold mb-3"> <span><HomeIcon></HomeIcon></span> Address</h2>
                 <h3 className=" text-base font-bold"><LocationOnIcon></LocationOnIcon> Present Address </h3>
                 <p className="ml-6">  Mirpur, Dhaka, Bangladesh</p>
             </div>

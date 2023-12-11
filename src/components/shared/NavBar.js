@@ -29,7 +29,7 @@ const navItems = [
     {
         "id":2,
         "item": "Contact",
-        "link": "/contact"
+        "link": "#contact"
     },
     {
         "id":3,
@@ -47,12 +47,12 @@ const NavBar = (props) => {
     };
 
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+        <Box   onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography className="flex justify-center" variant="h6" sx={{ my: 2 }}>
                 <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
             </Typography>
             <Divider />
-            <List>
+            <List  >
                 {navItems.map((item) => (
                     <ListItem key={item.id} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
@@ -107,7 +107,7 @@ const NavBar = (props) => {
                         </Toolbar>
                 </AppBar>
 
-                <nav>
+                <nav  >
                     <Drawer
                         container={container}
                         variant="temporary"
@@ -120,6 +120,7 @@ const NavBar = (props) => {
                             display: { xs: 'block', sm: 'none' },
                             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                         }}
+                       
                     >
                         {drawer}
                     </Drawer>

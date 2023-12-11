@@ -73,7 +73,7 @@ const GradientTextAnimation = () => {
                 <Link href="/mycv" download="./AsifAhammed.pdf" className='btn btn-sm text-white hover:text-black hover:bg-white  btn-outline' >
                     <DownloadLink></DownloadLink>
                 </Link>
-                <Link href="/" className='btn btn-sm text-white hover:text-black hover:bg-white  btn-outline' >
+                <Link href="#project" className='btn btn-sm text-white hover:text-black hover:bg-white  btn-outline' >
                     <EastIcon /> Project
                 </Link>
             </Box>
