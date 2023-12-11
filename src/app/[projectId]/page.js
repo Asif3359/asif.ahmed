@@ -6,7 +6,7 @@ import Link from "next/link";
 const NoSSR = dynamic(() => import("@/components/ProjectSwiper/ProjectSwiper"), { ssr: false })
 
 const page = async ({ params }) => {
-    const res = await fetch(`http://localhost:5000/projects/${params.projectId}`);
+    const res = await fetch(`https://asif-server-site.vercel.app/projects/${params.projectId}`);
     const project = await res.json();
     // console.log(project);
     return (

@@ -1,7 +1,7 @@
 
 const useProjects = async () => {
 
-    const res = await fetch('http://localhost:5000/projects');
+    const res = await fetch('https://asif-server-site.vercel.app/projects');
     const posts = await res.json();
 
 
