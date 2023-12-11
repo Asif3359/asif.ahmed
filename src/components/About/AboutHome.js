@@ -6,7 +6,7 @@ import cover from "@/assets/AsifCover.png"
 
 const AboutHome = () => {
     return (
-        <div className='container mx-auto my-5'>
+        <div className='container mx-auto my-5  w-full '>
             <div className='flex flex-col-reverse lg:flex-row gap-10 justify-between items-center p-5 '>
                 <div className='w-full lg:w-2/5 rounded-lg'>
                     <Image className='rounded-lg' src={cover} width={1000} height={400} alt="My Cover" />
