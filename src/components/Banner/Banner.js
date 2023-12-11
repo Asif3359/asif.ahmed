@@ -18,7 +18,7 @@ const Banner = () => {
 
     return (
         <div className='bg-gradient-to-r from-[#00000094]  '>
-            <div className="hero min-h-screen  bg-fixed hero-overlay opacity-90 py-3" style={{ backgroundImage: `url(${logo.src})`, backgroundSize: "cover", backgroundPosition: "center" }}>
+            <div className="hero min-h-screen  bg-fixed hero-overlay opacity-90 py-3 bg-bluer " style={{ backgroundImage: `url(${logo.src})`, backgroundSize: "cover", backgroundPosition: "center" }}>
                 <div className="container mx-auto px-2 ">
                     <div className="text-white w-full flex flex-col-reverse md:flex-row justify-between items-center gap-10 ">
                         <Box className=" w-full md:w-2/5 space-y-7" >
