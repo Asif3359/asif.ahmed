@@ -1,5 +1,3 @@
-
-'use client'
 import AnalogClock from 'analog-clock-react';
 const ReactClock = () => {
     let options = {

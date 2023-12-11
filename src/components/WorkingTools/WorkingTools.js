@@ -30,29 +30,45 @@ const WorkingTools = () => {
                 modules={[Pagination]}
                 className="mySwiper mt-5 py-4  max-w-[650px] mx-auto border-l-2 border-r-2 border-black "
             >
-                <SwiperSlide className='py-5 px-2' >
-                    <Image className='rounded-full'   src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                <SwiperSlide>
+                    <div>
+                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                    </div>
                 </SwiperSlide>
-                <SwiperSlide className='py-5 px-2' >
-                    <Image className='rounded-full'   src={MONGO2} width={150} height={200} alt='HTML Logo'></Image>
+                <SwiperSlide>
+                    <div>
+                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                    </div>
                 </SwiperSlide>
-                <SwiperSlide className='py-5 px-2' >
-                    <Image className='rounded-full'  src={CSS} width={150} height={200} alt='HTML Logo'></Image>
+                <SwiperSlide>
+                    <div>
+                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                    </div>
                 </SwiperSlide>
-                <SwiperSlide className='py-5 px-2' >
-                    <Image className='rounded-full'  src={JS} width={150} height={200} alt='HTML Logo'></Image>
+                <SwiperSlide>
+                    <div>
+                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                    </div>
                 </SwiperSlide>
-                <SwiperSlide className='py-5 px-2' >
-                    <Image className='rounded-full'  src={NODEJS} width={150} height={200} alt='HTML Logo'></Image>
+                <SwiperSlide>
+                    <div>
+                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                    </div>
                 </SwiperSlide>
-                <SwiperSlide className='py-5 px-2' >
-                    <Image className='rounded-full'  src={EXPRESS} width={150} height={200} alt='HTML Logo'></Image>
+                <SwiperSlide>
+                    <div>
+                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                    </div>
                 </SwiperSlide>
-                <SwiperSlide className='py-5 px-2' >
-                    <Image className='rounded-full'  src={HTML} width={150} height={200} alt='HTML Logo'></Image>
+                <SwiperSlide>
+                    <div>
+                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                    </div>
                 </SwiperSlide>
-                <SwiperSlide className='py-5 px-2' >
-                    <Image className='rounded-full'  src={Tailwind} width={150} height={200} alt='HTML Logo'></Image>
+                <SwiperSlide>
+                    <div>
+                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                    </div>
                 </SwiperSlide>
             </Swiper>
         </div>

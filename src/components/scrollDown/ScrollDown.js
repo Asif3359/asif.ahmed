@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import AnalohgClock from "@/components/AnalogClock/AnalohgClock"
+import AnalogClock from 'analog-clock-react';
 
 const ScrollBackgroundAnimation = () => {
     const controls = useAnimation();
@@ -21,6 +21,19 @@ const ScrollBackgroundAnimation = () => {
         // Remove the event listener on component unmount
         return () => window.removeEventListener('scroll', handleScroll);
     }, [controls]);
+    let options = {
+        width: "250px",
+        border: true,
+        borderColor: "white",
+        baseColor: "black",
+        centerColor: "#459cff",
+        centerBorderColor: "#ffffff",
+        handColors: {
+            second: "#d81c7a",
+            minute: "#ffffff",
+            hour: "#ffffff"
+        }
+    };
 
     return (
         <motion.div
@@ -28,7 +41,8 @@ const ScrollBackgroundAnimation = () => {
             animate={controls}
         >
             {/* <h1 className="text-4xl font-bold text-white">Scroll down to see the animation</h1> */}
-            <AnalohgClock></AnalohgClock>
+            {/* <AnalohgClock></AnalohgClock> */}
+            <AnalogClock {...options} />
         </motion.div>
     );
 };
