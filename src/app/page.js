@@ -20,7 +20,7 @@ const HomePage = async () => {
       <ProjectHome Projects={Projects}></ProjectHome>
       <WorkingTools></WorkingTools>
       <ResumeSection></ResumeSection>
-      <div className=" container mx-auto flex justify-between flex-col lg:flex-row lg:items-center gap-10">
+      <div className=" container mx-auto flex justify-between flex-col lg:flex-row items-center lg:items-start  p-3 lg:gap-10">
         <ContactDetails></ContactDetails>
         <ContactForm></ContactForm>
       </div>

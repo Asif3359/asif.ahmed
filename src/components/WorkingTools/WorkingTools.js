@@ -17,7 +17,7 @@ import Tailwind from '@/assets/Tailwind.jpg';
 
 const WorkingTools = () => {
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto my-3 lg:my-10'>
             <div className='mb-5'>
                 <h2 className='text-4xl font-bold text-center'>My Working Tools</h2>
             </div>
@@ -32,7 +32,7 @@ const WorkingTools = () => {
             >
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full' src={JS} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -42,32 +42,32 @@ const WorkingTools = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full' src={NODEJS} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full' src={MONGO2} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full' src={EXPRESS} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full' src={HTML} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full' src={CSS} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <Image className='rounded-full' src={REACT} width={150} height={200} alt='HTML Logo'></Image>
+                        <Image className='rounded-full' src={Tailwind} width={150} height={200} alt='HTML Logo'></Image>
                     </div>
                 </SwiperSlide>
             </Swiper>

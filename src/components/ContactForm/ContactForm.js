@@ -54,7 +54,7 @@ const ContactForm = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className='border-2 text-black border-black w-full rounded-lg px-2 py-3  Your Name '
+                        className='border-2 text-black border-black w-full rounded-lg px-2 py-1  Your Name '
                         placeholder='your Name'
                     />
                 </div>
@@ -68,7 +68,7 @@ const ContactForm = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className='border-2 text-black border-black w-full rounded-lg px-2 py-3'
+                        className='border-2 text-black border-black w-full rounded-lg px-2 py-1'
                         placeholder='your Email'
                     />
                 </div>
@@ -81,7 +81,7 @@ const ContactForm = () => {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        className='border-2 text-black border-black w-full rounded-lg px-2 py-3 h-52'
+                        className='border-2 text-black border-black w-full rounded-lg px-2 py-1 h-32'
                         placeholder='your Text - - - - -'
                     />
                 </div>

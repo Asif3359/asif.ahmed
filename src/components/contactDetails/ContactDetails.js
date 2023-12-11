@@ -1,12 +1,20 @@
+import Image from 'next/image';
 import React from 'react';
-
+import Asif from "@/assets/my-image.jpg"
+import HomeIcon from '@mui/icons-material/Home';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 const ContactDetails = () => {
     return (
-        <div className='container mx-auto  mt-10 py-4 w-full space-y-3'>
-           <h1 className='text-2xl'>Name: Asif Ahammed</h1>
-           <h1>Email: asifahammednishst@gmail.com </h1>
-           <h1>Phone: 01789846204</h1>
-           <div>Address: Mirpur, Dhaka , Bangladesh</div>
+        <div className='container mx-auto  w-full space-y-3 justify-center items-center text-center '>
+            <div className='flex justify-center items-center'>  <Image src={Asif} className='max-w-[200px] rounded-full ' alt='MyImage' width={400} height={400} ></Image></div>
+            <h1 className='text-2xl'>Name: Asif Ahammed</h1>
+            <h1>Email: asifahammednishst@gmail.com </h1>
+            <h1>Phone: 01789846204</h1>
+            <div>
+                <h2 className="text-2xl font-extrabold mb-3"> <span><HomeIcon></HomeIcon></span> Address</h2>
+                <h3 className=" text-base font-bold"><LocationOnIcon></LocationOnIcon> Present Address </h3>
+                <p className="ml-6">  Mirpur, Dhaka, Bangladesh</p>
+            </div>
         </div>
     );
 };

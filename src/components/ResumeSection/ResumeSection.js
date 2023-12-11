@@ -3,7 +3,6 @@ import React from 'react';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import StarsIcon from '@mui/icons-material/Stars';
-import HomeIcon from '@mui/icons-material/Home';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const ResumeSection = () => {
@@ -58,19 +57,6 @@ const ResumeSection = () => {
                                 <h2 className="text-2xl font-extrabold mb-3"> Skills</h2>
                                 <h3 className=" ">I have Well Concept In </h3>
                                 <h4 className=" ">C, C++, HTML, CSS,TailwindCss, JavaScript, NodeJs, React.Js, MongoDB, Express.js</h4>
-
-                            </div>
-                        </div>
-                        <div className=" flex flex-col lg:flex-row  gap-3 justify-center items-center md:justify-start md:items-start p-5 lg:p-0 text-center  md:text-start ">
-                            <div>
-                                <HomeIcon></HomeIcon>
-                            </div>
-                            <div>
-                                <h2 className="text-2xl font-extrabold mb-3"> Address</h2>
-                                <h3 className=" text-base font-bold"><LocationOnIcon></LocationOnIcon> Present Address </h3>
-                                <p className="ml-6">  Mirpur, Dhaka, Bangladesh</p>
-                                <h3 className=" text-base font-bold mt-2"><LocationOnIcon></LocationOnIcon> permanent Address </h3>
-                                <p className="ml-6">  Mirpur, Dhaka, Bangladesh</p>
 
                             </div>
                         </div>
