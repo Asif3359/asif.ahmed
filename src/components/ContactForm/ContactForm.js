@@ -43,7 +43,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className='container mx-auto mt-10 py-4 '>
+        <div className='container mx-auto  mt-10 py-4 w-full '>
             <form onSubmit={handleSubmit} className='space-y-3 bg-gray-900 px-8  py-8 text-white' >
                 <div>
                     <label htmlFor="name" className='py-2' >Enter Your Name :</label>
@@ -85,7 +85,7 @@ const ContactForm = () => {
                         placeholder='your Text - - - - -'
                     />
                 </div>
-                <button type="submit" className='btn btn-sm w-full'>Send Email</button>
+                <button type="submit" className='btn btn-sm w-full bg-black text-white border-white hover:text-black hover:border-black hover:bg-white '>Send Email</button>
             </form>
         </div>
     );

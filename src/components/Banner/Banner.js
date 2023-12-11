@@ -21,7 +21,7 @@ const Banner = () => {
             <div className="hero min-h-screen  bg-fixed hero-overlay opacity-90 py-3" style={{ backgroundImage: `url(${logo.src})`, backgroundSize: "cover", backgroundPosition: "center" }}>
                 <div className="container mx-auto px-2 ">
                     <div className="text-white w-full flex flex-col-reverse md:flex-row justify-between items-center gap-10 ">
-                        <Box className=" w-full sm:w-3/5 space-y-7" >
+                        <Box className=" w-full md:w-2/5 space-y-7" >
                             <Typography variant="h2" className="py-2 font-bold text-3xl sm:text-5xl  ">HI, I am Asif Ahammed</Typography>
                             <Typography variant="h4" className="mb-5 text-3xl sm:text-5xl font-bold">A dedicated Web Developer </Typography>
                             <p className="mb-5">As a Junior Web Developer .I want want to learn Many things. </p>
@@ -54,8 +54,8 @@ const Banner = () => {
                                 </Link>
                             </Box>
                         </Box>
-                        <Box className=" w-full sm:w-2/5 flex justify-center md:justify-end pt-5 ">
-                            <Box className=" bg-white z-10 relative rounded-full overflow-hidden">
+                        <Box className=" flex md:w-3/5 flex-col justify-end md:justify-end items-center  pt-5 text-center ">
+                            <Box className="  w-[250px] bg-white z-10 relative rounded-full overflow-hidden">
                                 <Box className='rounded-full overflow-hidden cursor-pointer  text-black'>
                                     {/* <Link href="/">
                                     <Image src={logo} height={500} width={500} alt='logo' />
@@ -65,6 +65,11 @@ const Banner = () => {
 
                                 </Box>
                             </Box>
+                            <p className='text-2xl font-bold'> &quot;Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.&quot;
+
+                                - Patrick mckenzie
+                            </p>
+
                         </Box>
                     </div>
                 </div>
