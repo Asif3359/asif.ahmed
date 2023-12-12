@@ -96,7 +96,7 @@ const ContactForm = () => {
                         placeholder='your Text - - - - -'
                     />
                 </div>
-                <button type="submit" className='btn btn-sm w-full bg-black text-white border-white hover:text-black hover:border-black hover:bg-white '>Send Email</button>
+                <input type="submit" value="Send Email" className='btn btn-sm w-full bg-black text-white border-white hover:text-black hover:border-black hover:bg-white '/>
             </form>
         </div>
     );
