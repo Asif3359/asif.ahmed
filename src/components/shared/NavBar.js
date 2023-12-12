@@ -18,7 +18,8 @@ import Button from '@mui/material/Button';
 import Image from 'next/image';
 import myImage from '@/assets/my-image.jpg'
 import Link from 'next/link';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import Google from 'next-auth/providers/google';
 
 const drawerWidth = 240;
 const navItems = [
@@ -48,11 +49,14 @@ const NavBar = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const session = useSession();
-    console.log(session);
+    // console.log(session.data);
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
+    const singInWithGoogle = () => {
+        signIn('google');
+    }
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -70,12 +74,24 @@ const NavBar = (props) => {
                         </ListItemButton>
                     </ListItem>
                 ))}
-                <button  className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 '  onClick={() => signIn('google')}>Sing In</button>
+                {
+                    session.status === "authenticated" ?
+                        <>
+                            <button className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 ' onClick={() => signOut('google')}>Sing out</button>
+                        </>
+                        :
+                        <>
+                            <button className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 ' onClick={singInWithGoogle}>Sing In</button>
+                        </>
+                }
+                {/* <button className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 ' onClick={singInWithGoogle}>Sing In</button> */}
             </List>
         </Box>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
+
+
 
     return (
         <Box >
@@ -107,7 +123,17 @@ const NavBar = (props) => {
                                     {item.item}
                                 </Link>
                             ))}
-                            <button  className='hover:underline '  onClick={() => signIn('google')}>Sing In</button>
+                            {
+                                session.status === "authenticated" ?
+                                    <>
+                                        <button className='hover:underline ' onClick={() => signOut('google')}>Sing Out</button>
+                                    </>
+                                    :
+                                    <>
+                                        <button className='hover:underline ' onClick={singInWithGoogle}>Sing In</button>
+                                    </>
+                            }
+
                         </Box>
                         <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
                             <IconButton aria-label="delete">

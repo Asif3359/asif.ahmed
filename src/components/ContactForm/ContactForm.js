@@ -92,7 +92,7 @@ const ContactForm = () => {
                         onChange={handleChange}
                         required
                         className='border-2 text-black border-black w-full rounded-lg px-2 py-1 h-32'
-                        placeholder='your Text - - - - -'
+                        placeholder='if you have any question ?..'
                     />
                 </div>
                 <input type="submit" value="Send Email" className='btn btn-sm w-full bg-black text-white border-white hover:text-black hover:border-black hover:bg-white ' />
