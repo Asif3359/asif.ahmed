@@ -24,7 +24,7 @@ const ContactForm = () => {
                 body: JSON.stringify(formData),
             });
             if (response.ok) {
-                console.log("Success");
+                console.log(response);
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
