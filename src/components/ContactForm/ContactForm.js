@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -14,8 +15,6 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const from = e.target;
-
         try {
             const response = await fetch('https://asif-server-site.vercel.app/submit', {
                 method: 'POST',
@@ -26,16 +25,28 @@ const ContactForm = () => {
             });
 
             if (response.ok) {
-                console.log('Submission successful');
-                // Reset the form if needed
-                from.reset();
+                // console.log('Submission successful');
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your Message has been send",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 setFormData({
                     name: '',
                     email: '',
                     message: '',
                 });
             } else {
-                console.error('Submission failed');
+                // console.error('Submission failed');
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "Something Error to send",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         } catch (error) {
             console.error('Error submitting form:', error);

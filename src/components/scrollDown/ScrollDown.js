@@ -12,15 +12,22 @@ const ScrollBackgroundAnimation = () => {
             const scrollY = window.scrollY;
 
             // Adjust the animation based on the scroll position
-            controls.start({ opacity: 1 - scrollY / 400, y: scrollY / 2 });
+            // if (controls.transition) {
+                controls.start({ opacity: 1 - scrollY / 400, y: scrollY / 2 });
+            // }
+
         };
 
         // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
-
+        // controls.start();
+        // if (controls.transition) {
+        //     controls.start();
+        // }
         // Remove the event listener on component unmount
         return () => window.removeEventListener('scroll', handleScroll);
     }, [controls]);
+
     let options = {
         width: "250px",
         border: true,

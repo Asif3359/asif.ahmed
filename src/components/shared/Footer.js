@@ -18,14 +18,14 @@ const navItems = [
     },
     {
         "id":2,
-        "item": "Contact",
-        "link": "/contact"
+        "item": "About",
+        "link": "/about"
     },
     {
         "id":3,
-        "item": "About",
-        "link": "/about"
-    }
+        "item": "Contact",
+        "link": "/contact"
+    },
 ];
 
 const Item = styled(Paper)(({ theme }) => ({

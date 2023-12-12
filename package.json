@@ -25,6 +25,7 @@
     "react-parallax": "^3.5.1",
     "react-spring": "^9.7.3",
     "react-use-downloader": "^1.2.4",
+    "sweetalert2": "^11.10.1",
     "swiper": "^11.0.5"
   },
   "devDependencies": {
