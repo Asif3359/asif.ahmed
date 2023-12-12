@@ -3,6 +3,8 @@ import './globals.css'
 import { Box, Toolbar, Typography } from '@mui/material'
 import NavBar from '@/components/shared/NavBar'
 import Footer from '@/components/shared/Footer'
+import NoSsr from '@/components/NoSsrc/NoSsr'
+import AuthProvider from '@/components/AuthProvider/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +18,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Box>
-          <NavBar></NavBar>
+          <AuthProvider>
+            <NavBar></NavBar>
+          </AuthProvider>
         </Box>
         <Toolbar />
         <Box component="main" sx={{ margin: "auto", minHeight: "100vh" }}  >

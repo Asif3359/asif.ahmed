@@ -52,12 +52,12 @@ const ProjectHome = ({ Projects }) => {
                                         clickable: true,
                                     }}
                                     modules={[Pagination]}
-                                    className="mySwiper w-full lg:w-3/4 min-h-fit bg-black  rounded-lg   "
+                                    className="mySwiper w-full lg:w-3/4 min-h-fit bg-black  rounded-sm   "
                                 >
                                     {
                                         item?.Images?.map((image, index) => <SwiperSlide className='py-5 px-2 ' key={index}>
-                                            <Box className='rounded-lg border '>
-                                                <Image className='rounded-lg' src={image} width={400} height={600} alt="My Cover" />
+                                            <Box className=' border '>
+                                                <Image className='' src={image} width={400} height={600} alt="My Cover" />
                                             </Box>
                                         </SwiperSlide>)
                                     }

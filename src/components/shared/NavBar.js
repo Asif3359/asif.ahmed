@@ -18,26 +18,27 @@ import Button from '@mui/material/Button';
 import Image from 'next/image';
 import myImage from '@/assets/my-image.jpg'
 import Link from 'next/link';
+import { signIn, useSession } from 'next-auth/react';
 
 const drawerWidth = 240;
 const navItems = [
     {
-        "id":1,
+        "id": 1,
         "item": "Home",
         "link": "/"
     },
     {
-        "id":2,
+        "id": 2,
         "item": "About",
         "link": "/about"
     },
     {
-        "id":3,
+        "id": 3,
         "item": "Contact",
         "link": "/contact"
     },
     {
-        "id":4,
+        "id": 4,
         "item": "GitHub",
         "link": "https://github.com/Asif3359"
     }
@@ -46,13 +47,15 @@ const navItems = [
 const NavBar = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const session = useSession();
+    console.log(session);
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
 
     const drawer = (
-        <Box   onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography className="flex justify-center" variant="h6" sx={{ my: 2 }}>
                 <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
             </Typography>
@@ -67,6 +70,7 @@ const NavBar = (props) => {
                         </ListItemButton>
                     </ListItem>
                 ))}
+                <button  className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 '  onClick={() => signIn('google')}>Sing In</button>
             </List>
         </Box>
     );
@@ -78,38 +82,39 @@ const NavBar = (props) => {
             <Box sx={{ display: 'flex' }}  >
                 <CssBaseline />
                 <AppBar component="nav" sx={{ backgroundColor: "black" }}>
-                        <Toolbar className='flex justify-between items-center container mx-auto' >
-                            <IconButton
-                                color="inherit"
-                                aria-label="open drawer"
-                                edge="start"
-                                onClick={handleDrawerToggle}
-                                sx={{ mr: 2, display: { sm: 'none' } }}
-                            >
-                                <MenuIcon />
+                    <Toolbar className='flex justify-between items-center container mx-auto' >
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            sx={{ mr: 2, display: { sm: 'none' } }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography
+                            variant="h6"
+                            component="div"
+                            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                        >
+                            <IconButton aria-label="delete">
+                                <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
                             </IconButton>
-                            <Typography
-                                variant="h6"
-                                component="div"
-                                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-                            >
-                                <IconButton aria-label="delete">
-                                    <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
-                                </IconButton>
-                            </Typography>
-                            <Box sx={{ display: { xs: 'none', sm: 'flex', gap: 20 } }}>
-                                {navItems.map((item) => (
-                                    <Link href={item.link} key={item.id} sx={{ color: '#fff' }} className='hover:underline ' >
-                                        {item.item}
-                                    </Link>
-                                ))}
-                            </Box>
-                            <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
-                                <IconButton aria-label="delete">
-                                    <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
-                                </IconButton>
-                            </Box>
-                        </Toolbar>
+                        </Typography>
+                        <Box sx={{ display: { xs: 'none', sm: 'flex', gap: 20 } }}>
+                            {navItems.map((item) => (
+                                <Link href={item.link} key={item.id} sx={{ color: '#fff' }} className='hover:underline ' >
+                                    {item.item}
+                                </Link>
+                            ))}
+                            <button  className='hover:underline '  onClick={() => signIn('google')}>Sing In</button>
+                        </Box>
+                        <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
+                            <IconButton aria-label="delete">
+                                <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
+                            </IconButton>
+                        </Box>
+                    </Toolbar>
                 </AppBar>
 
                 <nav  >
@@ -125,7 +130,7 @@ const NavBar = (props) => {
                             display: { xs: 'block', sm: 'none' },
                             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                         }}
-                       
+
                     >
                         {drawer}
                     </Drawer>

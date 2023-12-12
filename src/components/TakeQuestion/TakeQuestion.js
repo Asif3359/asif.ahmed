@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 
-const ContactForm = () => {
+const TakeQuestion = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -16,7 +16,7 @@ const ContactForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://asif-server-site.vercel.app/submit', {
+            const response = await fetch('https://asif-server-site.vercel.app/question', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,8 +53,8 @@ const ContactForm = () => {
     };
 
     return (
-        <div id='contact' className='container mx-auto  mt-10 py-4 w-full rounded-lg '>
-            <form onSubmit={handleSubmit} className='space-y-3 bg-black px-8 rounded-lg   py-8 text-white' >
+        <div id='contact' className='   w-full rounded-lg '>
+            <form onSubmit={handleSubmit} className='space-y-3 bg-black px-8 rounded-lg py-7  text-white' >
                 <div>
                     <label htmlFor="name" className='py-2' >Enter Your Name :</label>
                     <input
@@ -64,7 +64,7 @@ const ContactForm = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className='border-2 text-black border-black w-full rounded-lg px-2 py-1  Your Name '
+                        className='border-2 text-black border-black w-full rounded-lg py-1  Your Name '
                         placeholder='your Name'
                     />
                 </div>
@@ -78,7 +78,7 @@ const ContactForm = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className='border-2 text-black border-black w-full rounded-lg px-2 py-1'
+                        className='border-2 text-black border-black w-full rounded-lg py-1'
                         placeholder='your Email'
                     />
                 </div>
@@ -91,7 +91,7 @@ const ContactForm = () => {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        className='border-2 text-black border-black w-full rounded-lg px-2 py-1 h-32'
+                        className='border-2 text-black border-black w-full rounded-lg '
                         placeholder='your Text - - - - -'
                     />
                 </div>
@@ -101,4 +101,4 @@ const ContactForm = () => {
     );
 };
 
-export default ContactForm;
+export default TakeQuestion;

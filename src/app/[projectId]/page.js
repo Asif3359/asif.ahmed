@@ -16,7 +16,7 @@ const page = async ({ params }) => {
             <div className="container mx-auto">
                 <h1 className="font-bold text-5xl" >{project.Title}</h1>
                 <p variant="p" sx={{ marginTop: 10 }} >{project.Description}</p>
-                <Box className="flex flex-col lg:flex-row justify-between items-start gap-4  ">
+                <Box className="flex flex-col lg:flex-row justify-between items-start gap-4 mt-5  lg:mt-10 py-4 lg:py-10  ">
                     <Typography variant="ul " className="lg:w-1/4" >
                         <h3 variant="h4" className="font-bold  text-3xl" >Project Features</h3>
                         {
@@ -27,7 +27,7 @@ const page = async ({ params }) => {
                             )
                         }
                     </Typography>
-                    <Box className=" border-2 rounded-lg border-black w-full lg:flex-1">
+                    <Box className="  border-2 rounded-lg border-black w-full lg:flex-1">
                         <div className="flex px-2 py-1 mb-2 items-center gap-3">
                             <h3 variant="h4" className="font-bold  text-3xl  " >Live Demo</h3>
                             <Link href={project.LiveLink} className="btn btn-sm hover:bg-black hover:text-white text-black bg-white border-black ">View Full Page</Link>

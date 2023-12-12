@@ -24,7 +24,7 @@ const ProjectSwiper = ({ Item }) => {
             >
                 {
                     Item?.map((image, index) => <SwiperSlide className='py-5 px-2 ' key={index}>
-                        <Box className='rounded-lg border  '>
+                        <Box className=' border  '>
                             <Image className=' w-full h-3/4 ' src={image} width={1000} height={400} alt="My Cover" />
                         </Box>
                     </SwiperSlide>)
