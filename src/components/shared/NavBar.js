@@ -54,8 +54,40 @@ const NavBar = (props) => {
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
-    const singInWithGoogle = () => {
-        signIn('google');
+    const singInWithGoogle = async () => {
+        const user = session.data
+        
+        try {
+            await signIn('google');
+            const response = await fetch('https://asif-server-site.vercel.app/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user),
+            });
+            if (response.ok) {
+                console.log(response);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your Message has been send",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            } else {
+                // console.error('Submission failed');
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "Something Error to send",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+        }
     }
 
     const drawer = (
