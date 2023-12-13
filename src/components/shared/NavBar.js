@@ -60,57 +60,57 @@ const NavBar = (props) => {
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
-    // const singInWithGoogle = async () => {
-    //     try {
-    //         const response = await signIn('google');
-    //         const user = session.data.user;
-    //         console.log(response);
+    const singInWithGoogle = async () => {
+        try {
+            const response = await signIn('google');
+            const user = session.data.user;
+            console.log(response);
 
-    //         const userData = {
-    //             name: user.name,
-    //             email: user.email,
-    //             // Add other user properties as needed
-    //         };
+            const userData = {
+                name: user.name,
+                email: user.email,
+                // Add other user properties as needed
+            };
 
-    //         const mongoResponse = await fetch('https://asif-server-site.vercel.app/users', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(userData),
-    //         });
+            const mongoResponse = await fetch('https://asif-server-site.vercel.app/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            });
 
-    //         console.log('MongoDB Response:', mongoResponse);
+            console.log('MongoDB Response:', mongoResponse);
 
-    //         if (mongoResponse.ok) {
-    //             Swal.fire({
-    //                 position: "top-end",
-    //                 icon: "success",
-    //                 title: "Your Message has been sent",
-    //                 showConfirmButton: false,
-    //                 timer: 1500
-    //             });
-    //         } else {
-    //             console.error('Failed to send user data to MongoDB');
-    //             Swal.fire({
-    //                 position: "top-end",
-    //                 icon: "error",
-    //                 title: "Something went wrong",
-    //                 showConfirmButton: false,
-    //                 timer: 1500
-    //             });
-    //         }
-    //     } catch (error) {
-    //         console.error('Error signing in:', error);
-    //     }
-    // }
+            if (mongoResponse.ok) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your Message has been sent",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            } else {
+                console.error('Failed to send user data to MongoDB');
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "Something went wrong",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        } catch (error) {
+            console.error('Error signing in:', error);
+        }
+    }
 
     const handleSignIn = (modalId) => {
         document.getElementById(modalId).showModal();
 
     };
 
-    const handleFrom = (event,modalId) => {
+    const handleFrom = (event, modalId) => {
         event.preventDefault();
         const form = event.target;
         const password = form.elements.password.value;
@@ -121,11 +121,11 @@ const NavBar = (props) => {
             console.log(password);
             const dataToStore = { key: password }; // Replace with your actual data
             localStorage.setItem('password', JSON.stringify(dataToStore));
-            router.push('/admin');  
+            router.push('/admin');
             document.getElementById(modalId).close();
         }
-        else{
-            localStorage.setItem('password', JSON.stringify(null));  
+        else {
+            localStorage.setItem('password', JSON.stringify(null));
         }
     }
 
@@ -155,7 +155,7 @@ const NavBar = (props) => {
                         </ListItemButton>
                     </ListItem>
                 ))}
-                {/* {
+                {
                     session.status === "authenticated" ?
                         <>
                             <button className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 ' onClick={() => signOut('google')}>Sing out</button>
@@ -164,7 +164,7 @@ const NavBar = (props) => {
                         <>
                             <button className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 ' onClick={singInWithGoogle}>Sing In</button>
                         </>
-                } */}
+                }
                 {/* <button  onClick={(() => document.getElementById('my_modal_5').showModal(), handleSignIn)}>Sing In </button> */}
                 <button className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 ' onClick={() => handleSignIn('modal-1')}>
                     Admin
@@ -174,7 +174,7 @@ const NavBar = (props) => {
                         <h3 className="font-bold text-lg">Hello!</h3>
                         <p className="py-4">There Is No Functionality yet</p>
                         <div className=" w-full flex space-y-3 ">
-                            <form onSubmit={(e)=>handleFrom(e,'modal-1')} method="dialog space-y-3 space-y-3">
+                            <form onSubmit={(e) => handleFrom(e, 'modal-1')} method="dialog space-y-3 space-y-3">
                                 <input id='password' type="password" placeholder='Your Pass' name='password' className='p-2 border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
                                 <div className='flex justify-between items-center'>
                                     <input type='submit' value='submit' className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" />
@@ -227,7 +227,7 @@ const NavBar = (props) => {
                                     {item.item}
                                 </Link>
                             ))}
-                            {/* {
+                            {
                                 session.status === "authenticated" ?
                                     <>
                                         <button className='hover:underline ' onClick={() => signOut('google')}>Sing Out</button>
@@ -236,7 +236,7 @@ const NavBar = (props) => {
                                     <>
                                         <button className='hover:underline ' onClick={singInWithGoogle}>Sing In</button>
                                     </>
-                            } */}
+                            }
                             <button className='hover:underline' onClick={() => handleSignIn('modal-2')}>
                                 Admin
                             </button>
@@ -245,7 +245,7 @@ const NavBar = (props) => {
                                     <h3 className="font-bold text-lg">Hello!</h3>
                                     <p className="py-4">There Is No Functionality yet</p>
                                     <div className=" w-full flex space-y-3 ">
-                                        <form onSubmit={(e)=>handleFrom(e,'modal-2')} method="dialog space-y-3 space-y-3">
+                                        <form onSubmit={(e) => handleFrom(e, 'modal-2')} method="dialog space-y-3 space-y-3">
                                             <input type="password" name='password' placeholder='Your Pass' className='p-2 border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
                                             <div className='flex justify-between items-center'>
                                                 <input type="submit" value='sub' className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" />
