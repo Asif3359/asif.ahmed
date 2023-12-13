@@ -20,6 +20,7 @@ import myImage from '@/assets/my-image.jpg'
 import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Google from 'next-auth/providers/google';
+import Swal from 'sweetalert2';
 
 const drawerWidth = 240;
 const navItems = [
@@ -55,35 +56,52 @@ const NavBar = (props) => {
         setMobileOpen((prevState) => !prevState);
     };
     const singInWithGoogle = async () => {
-        const user = session.data
-        
         try {
-            await signIn('google');
-            const response = await fetch('https://asif-server-site.vercel.app/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(user),
-            });
-            if (response.ok) {
-                console.log(response);
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Your Message has been send",
-                    showConfirmButton: false,
-                    timer: 1500
+            const response = await signIn('google');
+
+
+            if (session.status === "authenticated") {
+                const user = session.data.user;
+
+                // Create an object with the user information you want to store in MongoDB
+                const userData = {
+                    name: user.name,
+                    email: user.email,
+                    // Add other user properties as needed
+                };
+
+                // Send a POST request to your MongoDB API or server
+                const mongoResponse = await fetch('https://asif-server-site.vercel.app/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData),
                 });
-            } else {
-                // console.error('Submission failed');
-                Swal.fire({
-                    position: "top-end",
-                    icon: "error",
-                    title: "Something Error to send",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+
+                if (mongoResponse.ok) {
+                    console.log('User data sent to MongoDB:', userData);
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your Message has been send",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    // Handle success (e.g., show a success message)
+                } else {
+                    console.error('Failed to send user data to MongoDB');
+                    // Handle error (e.g., show an error message)
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your Message has been send",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+
+                // You can also perform additional actions after sign-in if needed
             }
         } catch (error) {
             console.error('Error submitting form:', error);
