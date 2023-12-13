@@ -22,8 +22,8 @@ const HomePage = async () => {
       <ProjectHome Projects={Projects}></ProjectHome>
       <WorkingTools></WorkingTools>
       <ResumeSection></ResumeSection>
-      <div className="container mx-auto flex justify-between flex-col lg:flex-row items-center lg:items-start p-3 lg:gap-10 mt-5 mb-5 lg:mt-10">
-        <ShowQuestion></ShowQuestion>
+      <div className="container hidden mx-auto  justify-between flex-col lg:flex-row items-center lg:items-start p-3 lg:gap-10 mt-5 mb-5 lg:mt-10">
+        {/* <ShowQuestion></ShowQuestion> */}
         {/* <TakeQuestion></TakeQuestion> */}
       </div>
       <div className=" container mx-auto flex justify-between flex-col lg:flex-row items-center lg:items-start  p-3 lg:gap-10">
