@@ -49,7 +49,7 @@ const navItems = [
 const NavBar = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    
+    const session = useSession();
     // console.log(session.data);
 
     const handleDrawerToggle = () => {
@@ -58,55 +58,48 @@ const NavBar = (props) => {
     const singInWithGoogle = async () => {
         try {
             const response = await signIn('google');
-            const session = await  useSession();
-
-            if (session.status === "authenticated") {
-                const user = session.data.user;
-
-                // Create an object with the user information you want to store in MongoDB
-                const userData = {
-                    name: user.name,
-                    email: user.email,
-                    // Add other user properties as needed
-                };
-
-                // Send a POST request to your MongoDB API or server
-                const mongoResponse = await fetch('https://asif-server-site.vercel.app/users', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(userData),
+            const user = session.data.user;
+            console.log(response);
+    
+            const userData = {
+                name: user.name,
+                email: user.email,
+                // Add other user properties as needed
+            };
+    
+            const mongoResponse = await fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            });
+    
+            console.log('MongoDB Response:', mongoResponse);
+    
+            if (mongoResponse.ok) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your Message has been sent",
+                    showConfirmButton: false,
+                    timer: 1500
                 });
-
-                if (mongoResponse.ok) {
-                    console.log('User data sent to MongoDB:', userData);
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "Your Message has been send",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    // Handle success (e.g., show a success message)
-                } else {
-                    console.error('Failed to send user data to MongoDB');
-                    // Handle error (e.g., show an error message)
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "error",
-                        title: "something error ",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                }
-
-                // You can also perform additional actions after sign-in if needed
+            } else {
+                console.error('Failed to send user data to MongoDB');
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "Something went wrong",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         } catch (error) {
-            console.error('Error submitting form:', error);
+            console.error('Error signing in:', error);
         }
     }
+    
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
