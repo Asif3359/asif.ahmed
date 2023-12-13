@@ -67,7 +67,7 @@ const NavBar = (props) => {
                 // Add other user properties as needed
             };
     
-            const mongoResponse = await fetch('http://localhost:5000/users', {
+            const mongoResponse = await fetch('https://asif-server-site.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
