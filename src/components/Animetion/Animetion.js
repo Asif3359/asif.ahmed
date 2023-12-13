@@ -12,7 +12,7 @@ import DownloadLink from '../DownloadLink/DownloadLink';
 
 const textVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.4 } },
+    visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } },
 };
 
 const wordVariants = {
@@ -30,13 +30,13 @@ const GradientTextAnimation = () => {
         >
             {/* A dedicated Web Developer */}
 
-            <h1 className='text-4xl font-bold'><motion.span variants={wordVariants}>Hi,</motion.span>{' '}</h1>
+            <h1 className=' text-2xl lg:text-4xl font-bold'><motion.span variants={wordVariants}>Hi,</motion.span>{' '}</h1>
 
-            <div className='text-4xl font-bold'>
+            <div className=' text-2xl lg:text-4xl font-bold'>
                 <motion.span variants={wordVariants}>I</motion.span>{' '}
                 <motion.span variants={wordVariants}>AM</motion.span>{' '}
                 <motion.span variants={wordVariants}>ASIF</motion.span>{' '}
-                <motion.span variants={wordVariants}>ASIFAHAMMED</motion.span>{' '}
+                <motion.span variants={wordVariants}>AHAMMED</motion.span>{' '}
             </div>
             <div>
                 <motion.span variants={wordVariants}>A</motion.span>{' '}

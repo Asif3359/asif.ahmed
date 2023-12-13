@@ -17,9 +17,9 @@ const ProjectHome = ({ Projects }) => {
     // console.log(Projects);
 
     return (
-        <div className='container mx-auto my-6 ' id='project'>
-            <Typography variant='h2' className='font-bold mt-5 lg:ml-10' >My Projects </Typography>
-            <Typography variant='p' className='font-bold mt-5 ml-5 lg:ml-10' >You Can See All This Project </Typography>
+        <div className='container mx-auto my-6 px-2 ' id='project'>
+            <h1 className='font-bold text-2xl lg:text-4xl mt-5 lg:ml-10' >My Projects </h1>
+            <h1 className='font-bold sm:mt-5 sm:ml-5 lg:ml-10' >You Can See All This Project </h1>
 
             <div>
                 <Swiper
@@ -32,18 +32,18 @@ const ProjectHome = ({ Projects }) => {
                 >
                     {
                         Projects.map((item) => <SwiperSlide className='' key={item._id}>
-                            <Box className="flex gap-5 lg:justify-between lg:items-center flex-col lg:flex-row px-5 lg:px-10 min-h-[80vh] py-4 lg:py-10 ">
+                            <Box className="flex gap-5 lg:justify-between lg:items-center flex-col lg:flex-row  lg:px-10 min-h-[80vh] py-4 lg:py-10 ">
                                 <Box className=" flex flex-col justify-between gap-2 w-full lg:w-3/5">
-                                    <Typography variant='h3' className='font-bold' >{item.Title}</Typography>
-                                    <Typography variant='p' >{item.Description}</Typography>
-                                    <Typography className='flex justify-start gap-3'>
-                                        <Link href={item.LiveLink} className='btn btn-sm text-black  hover:text-white hover:bg-black  btn-outline' >
-                                            View Live Demo
+                                    <h1 className='font-bold text-xl  lg:text-4xl' >{item.Title}</h1>
+                                    <p >{item.Description}</p>
+                                    <div className='flex flex-col sm:flex-row justify-start gap-3'>
+                                        <Link href={item.LiveLink} className='btn w-32 lg:w-40 btn-sm text-black  hover:text-white hover:bg-black  btn-outline' >
+                                            Live Demo
                                         </Link>
-                                        <Link href={`/${item._id}`} className='btn btn-sm text-black  hover:text-white hover:bg-black  btn-outline' >
-                                            See Details
+                                        <Link href={`/${item._id}`} className='btn w-32 lg:w-40 btn-sm text-black  hover:text-white hover:bg-black  btn-outline' >
+                                            Details
                                         </Link>
-                                    </Typography>
+                                    </div>
                                 </Box>
                                 <Swiper
                                     slidesPerView={2.5}
@@ -55,7 +55,7 @@ const ProjectHome = ({ Projects }) => {
                                     className="mySwiper w-full lg:w-3/4 min-h-fit bg-black  rounded-sm   "
                                 >
                                     {
-                                        item?.Images?.map((image, index) => <SwiperSlide className='py-5 px-2 ' key={index}>
+                                        item?.Images?.map((image, index) => <SwiperSlide className='sm:py-5 sm:px-2 ' key={index}>
                                             <Box className=' border '>
                                                 <Image className='' src={image} width={400} height={600} alt="My Cover" />
                                             </Box>

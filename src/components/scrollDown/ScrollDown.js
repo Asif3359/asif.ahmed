@@ -8,28 +8,22 @@ const ScrollBackgroundAnimation = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            // Calculate the scroll position
+            // Calculate the vertical scroll position
             const scrollY = window.scrollY;
 
-            // Adjust the animation based on the scroll position
-            // if (controls.transition) {
-                controls.start({ opacity: 1 - scrollY / 400, y: scrollY / 2 });
-            // }
-
+            // Adjust the animation based on the vertical scroll position
+            controls.start({ opacity: 1 - scrollY / 400, x: scrollY / 2 });
         };
 
         // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
-        // controls.start();
-        // if (controls.transition) {
-        //     controls.start();
-        // }
+
         // Remove the event listener on component unmount
         return () => window.removeEventListener('scroll', handleScroll);
     }, [controls]);
 
     let options = {
-        width: "250px",
+        width: "200px",
         border: true,
         borderColor: "white",
         baseColor: "black",
@@ -44,7 +38,7 @@ const ScrollBackgroundAnimation = () => {
 
     return (
         <motion.div
-            className="min-h-[70vh] w-full bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-500 relative flex items-center "
+            className="w-[200px] h-[200px] relative flex justify-center items-center "
             animate={controls}
         >
             {/* <h1 className="text-4xl font-bold text-white">Scroll down to see the animation</h1> */}

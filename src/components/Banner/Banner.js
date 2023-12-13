@@ -15,8 +15,8 @@ const Banner = () => {
                         <Box  >
                             <GradientTextAnimation />
                         </Box>
-                        <Box className=" flex md:w-3/5 flex-col justify-end md:justify-end items-center  pt-5 text-center ">
-                            <Box className="  w-[250px] bg-white z-10 relative rounded-full overflow-hidden">
+                        <Box className="  w-full flex md:w-3/5 flex-col justify-end md:justify-end items-center  pt-5 text-center ">
+                            <Box className=" border-4 py-10 border-white w-full flex justify-center items-center  z-10 relative rounded-full overflow-hidden  bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-500">
                                 <NoSsr>
                                     <ScrollBackgroundAnimation></ScrollBackgroundAnimation>
                                 </NoSsr>

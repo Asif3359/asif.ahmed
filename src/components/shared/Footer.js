@@ -12,17 +12,17 @@ import Link from 'next/link';
 
 const navItems = [
     {
-        "id":1,
+        "id": 1,
         "item": "Home",
         "link": "/"
     },
     {
-        "id":2,
+        "id": 2,
         "item": "About",
         "link": "/about"
     },
     {
-        "id":3,
+        "id": 3,
         "item": "Contact",
         "link": "/contact"
     },
@@ -40,18 +40,13 @@ const Footer = () => {
     return (
         <Box sx={{ width: "full", backgroundColor: "black", paddingY: 10 }} >
             <Container sx={{ display: "flex", justifyContent: "center" }} className=" text-white p-3">
-                <Box sx={{ flexGrow: 1 }}>
-                    <Grid container spacing={2}>
+                <Box sx={{ flexGrow: 1 }} className="container mx-auto" >
+                    <div className=' flex flex-col md:flex-row justify-between items-center '>
 
-                        <Grid item xs={4}>
-                            <Image src={myImage} width={70} height={70} alt='my image' className='rounded-full' ></Image>
-                            <Box sx={{ display: 'flex', gap: 2, marginTop: 3 }}>
-                                <Link href="mailto:asifahammendishst@gmail.com" >
-                                    <Email /> asifahammendishst@gmail.com
-                                </Link>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={8} >
+                        <div className='flex flex-col justify-center items-center md:flex-row' >
+                            <Image src={myImage} width={100} height={100} alt='my image' className='rounded-full' ></Image>
+                        </div>
+                        <div className='flex justify-center items-center'>
                             <Box className=" flex flex-col justify-center items-center" >
                                 <Box sx={{ display: 'flex', gap: 2 }}>
                                     {navItems.map((item) => (
@@ -64,8 +59,8 @@ const Footer = () => {
                                     <Link href="https://www.facebook.com/1nothing90" >
                                         <Facebook />
                                     </Link>
-                                    <Link href="/" >
-                                        <Instagram />
+                                    <Link href="mailto:asifahammendishst@gmail.com" >
+                                        <Email />
                                     </Link>
                                     <Link href="/" >
                                         <Twitter />
@@ -80,13 +75,10 @@ const Footer = () => {
 
                             </Box>
 
-                        </Grid>
-                    </Grid>
+                        </div>
+                    </div>
                 </Box>
             </Container>
-            {/* <Container sx={{ display: "flex", justifyContent: "center" }} className=" text-white p-3">
-
-            </Container> */}
         </Box>
     );
 };

@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const DownloadLink = () => {
   const handleDownload = () => {
@@ -13,7 +13,7 @@ const DownloadLink = () => {
 
   return (
     <div>
-      <button onClick={handleDownload}><ArrowRightAltIcon></ArrowRightAltIcon>  Resume</button>
+      <button onClick={handleDownload}><ArrowDownwardIcon></ArrowDownwardIcon>  Resume</button>
     </div>
   );
 };

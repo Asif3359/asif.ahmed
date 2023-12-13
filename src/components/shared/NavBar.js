@@ -116,7 +116,7 @@ const NavBar = (props) => {
 
         if (adminPass === password) {
             console.log(password);
-            const dataToStore = { key: password }; 
+            const dataToStore = { key: password };
             localStorage.setItem('password', JSON.stringify(dataToStore));
             router.push('/admin');
             document.getElementById(modalId).close();
@@ -161,13 +161,15 @@ const NavBar = (props) => {
                 </button>
                 <dialog id="modal-1" className="modal  modal-middle text-black ">
                     <div className="modal-box">
-                        <h3 className="font-bold text-lg">Hello!</h3>
-                        <p className="py-4">There Is No Functionality yet</p>
-                        <div className=" w-full flex space-y-3 ">
-                            <form onSubmit={(e) => handleFrom(e, 'modal-1')} method="dialog space-y-3 space-y-3">
-                                <input id='password' type="password" placeholder='Your Pass' name='password' className='p-2 border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
-                                <div className='flex justify-between items-center'>
-                                    <input type='submit' value='submit' className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" />
+                        <div className='flex justify-center items-center flex-col'>
+                            <h3 className="font-bold text-lg">Hello!</h3>
+                            <p className="py-4">There Is No Functionality yet</p>
+                        </div>
+                        <div className=" w-full space-y-3 ">
+                            <form onSubmit={(e) => handleFrom(e, 'modal-1')} method="dialog" className='space-y-3 flex  justify-center items-center flex-col'>
+                                <input id='password' type="password" placeholder='Your Pass' name='password' className='p-2 w-full border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
+                                <div className='flex justify-center gap-3 items-center'>
+                                    <input type='submit' value='submit' className="btn  btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" />
                                     {/* Submit
                                     </button> */}
                                     <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleCloseModal('modal-1', e)}>
@@ -231,14 +233,16 @@ const NavBar = (props) => {
                                 Admin
                             </button>
                             <dialog id="modal-2" className="modal-bottom w-fit sm:modal-middle text-black ">
-                                <div className="modal-box shadow-none w-full">
-                                    <h3 className="font-bold text-lg">Hello!</h3>
-                                    <p className="py-4">There Is No Functionality yet</p>
+                                <div className="modal-box shadow-none w-full ">
+                                    <div className='flex justify-center items-center flex-col'>
+                                        <h3 className="font-bold text-lg">Hello!</h3>
+                                        <p className="py-4 text-center">There Is No Functionality yet</p>
+                                    </div>
                                     <div className=" w-full flex space-y-3 ">
-                                        <form onSubmit={(e) => handleFrom(e, 'modal-2')} method="dialog space-y-3 space-y-3">
-                                            <input type="password" name='password' placeholder='Your Pass' className='p-2 border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
-                                            <div className='flex justify-between items-center'>
-                                                <input type="submit" value='sub' className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" />
+                                        <form onSubmit={(e) => handleFrom(e, 'modal-2')} className=' space-y-3 flex justify-center items-center flex-col' method="dialog">
+                                            <input type="password" name='password' placeholder='Your Pass' className='p-2 w-full border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
+                                            <div className='flex justify-center gap-3 items-center'>
+                                                <input type="submit" value='submit' className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" />
                                                 {/* Submit
                                                 </button> */}
                                                 <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleCloseModal('modal-2', e)}>
