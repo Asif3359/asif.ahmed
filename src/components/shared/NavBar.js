@@ -21,6 +21,7 @@ import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Google from 'next-auth/providers/google';
 import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 const drawerWidth = 240;
 const navItems = [
@@ -50,8 +51,11 @@ const NavBar = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const session = useSession();
-    // console.log(session.data);
-    const adminPass = process.env.ADMIN_PASS;
+    const router = useRouter();
+    const storedData = JSON.parse(localStorage.getItem('password'));
+    // console.log(storedData);
+    const passwordRef = React.useRef(null);
+    const adminPass = process.env.NEXT_PUBLIC_ADMIN_PASS;
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
@@ -106,15 +110,35 @@ const NavBar = (props) => {
 
     };
 
+    const handleFrom = (event,modalId) => {
+        event.preventDefault();
+        const form = event.target;
+        const password = form.elements.password.value;
+
+
+        // console.log(adminPass)
+        if (adminPass === password) {
+            console.log(password);
+            const dataToStore = { key: password }; // Replace with your actual data
+            localStorage.setItem('password', JSON.stringify(dataToStore));
+            router.push('/admin');  
+            document.getElementById(modalId).close();
+        }
+        else{
+            localStorage.setItem('password', JSON.stringify(null));  
+        }
+    }
+
     const handleCloseModal = (modalId, event) => {
         event.preventDefault();
         document.getElementById(modalId).close();
+
     };
 
-    const handleSubmit = (modalId, event) => {
-        event.preventDefault();
-        document.getElementById(modalId).close();
-    };
+    // const handleSubmit = (modalId, event) => {
+    //     event.preventDefault();
+    //     document.getElementById(modalId).close();
+    // };
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography className="flex justify-center" variant="h6" sx={{ my: 2 }}>
@@ -150,12 +174,12 @@ const NavBar = (props) => {
                         <h3 className="font-bold text-lg">Hello!</h3>
                         <p className="py-4">There Is No Functionality yet</p>
                         <div className=" w-full flex space-y-3 ">
-                            <form method="dialog space-y-3 space-y-3">
-                                <input type="password" placeholder='Your Pass' name='password' className='p-2 border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
+                            <form onSubmit={(e)=>handleFrom(e,'modal-1')} method="dialog space-y-3 space-y-3">
+                                <input id='password' type="password" placeholder='Your Pass' name='password' className='p-2 border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
                                 <div className='flex justify-between items-center'>
-                                    <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleSubmit('modal-1', e)}>
-                                        Submit
-                                    </button>
+                                    <input type='submit' value='submit' className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" />
+                                    {/* Submit
+                                    </button> */}
                                     <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleCloseModal('modal-1', e)}>
                                         Close
                                     </button>
@@ -221,12 +245,12 @@ const NavBar = (props) => {
                                     <h3 className="font-bold text-lg">Hello!</h3>
                                     <p className="py-4">There Is No Functionality yet</p>
                                     <div className=" w-full flex space-y-3 ">
-                                        <form method="dialog space-y-3 space-y-3">
+                                        <form onSubmit={(e)=>handleFrom(e,'modal-2')} method="dialog space-y-3 space-y-3">
                                             <input type="password" name='password' placeholder='Your Pass' className='p-2 border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
                                             <div className='flex justify-between items-center'>
-                                                <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleSubmit('modal-2', e)}>
-                                                    Submit
-                                                </button>
+                                                <input type="submit" value='sub' className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" />
+                                                {/* Submit
+                                                </button> */}
                                                 <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleCloseModal('modal-2', e)}>
                                                     Close
                                                 </button>

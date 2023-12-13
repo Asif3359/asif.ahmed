@@ -27,7 +27,7 @@ const ResumeSection = () => {
                                 <span>2019 - 2020</span>
                                 <p className=""> <LocationOnIcon></LocationOnIcon> Mirpur, Dhaka, Bangladesh</p>
 
-                                <h3 className=" text-base font-bold mt-3">BSC : Bangladesh University Of Businesses and Technology </h3>
+                                <h3 className=" text-base font-bold mt-3">BSC : Bangladesh University Of Business and Technology </h3>
                                 <h4 className=" font-semibold">BSc. in. Computer Science Engineering</h4>
                                 <span>2022 - </span>
                                 <p className=""> <LocationOnIcon></LocationOnIcon> Mirpur, Dhaka, Bangladesh</p>

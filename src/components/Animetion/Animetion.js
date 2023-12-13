@@ -52,7 +52,6 @@ const GradientTextAnimation = () => {
                 <motion.span variants={wordVariants}>.</motion.span>{' '}
                 <motion.span variants={wordVariants}>I</motion.span>{' '}
                 <motion.span variants={wordVariants}>want</motion.span>{' '}
-                <motion.span variants={wordVariants}>want</motion.span>{' '}
                 <motion.span variants={wordVariants}>to</motion.span>{' '}
                 <motion.span variants={wordVariants}>learn</motion.span>{' '}
                 <motion.span variants={wordVariants}>Many</motion.span>{' '}
