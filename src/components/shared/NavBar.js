@@ -51,56 +51,70 @@ const NavBar = (props) => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const session = useSession();
     // console.log(session.data);
+    const adminPass = process.env.ADMIN_PASS;
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
-    const singInWithGoogle = async () => {
-        try {
-            const response = await signIn('google');
-            const user = session.data.user;
-            console.log(response);
-    
-            const userData = {
-                name: user.name,
-                email: user.email,
-                // Add other user properties as needed
-            };
-    
-            const mongoResponse = await fetch('https://asif-server-site.vercel.app/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userData),
-            });
-    
-            console.log('MongoDB Response:', mongoResponse);
-    
-            if (mongoResponse.ok) {
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Your Message has been sent",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            } else {
-                console.error('Failed to send user data to MongoDB');
-                Swal.fire({
-                    position: "top-end",
-                    icon: "error",
-                    title: "Something went wrong",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
-        } catch (error) {
-            console.error('Error signing in:', error);
-        }
-    }
-    
+    // const singInWithGoogle = async () => {
+    //     try {
+    //         const response = await signIn('google');
+    //         const user = session.data.user;
+    //         console.log(response);
 
+    //         const userData = {
+    //             name: user.name,
+    //             email: user.email,
+    //             // Add other user properties as needed
+    //         };
+
+    //         const mongoResponse = await fetch('https://asif-server-site.vercel.app/users', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(userData),
+    //         });
+
+    //         console.log('MongoDB Response:', mongoResponse);
+
+    //         if (mongoResponse.ok) {
+    //             Swal.fire({
+    //                 position: "top-end",
+    //                 icon: "success",
+    //                 title: "Your Message has been sent",
+    //                 showConfirmButton: false,
+    //                 timer: 1500
+    //             });
+    //         } else {
+    //             console.error('Failed to send user data to MongoDB');
+    //             Swal.fire({
+    //                 position: "top-end",
+    //                 icon: "error",
+    //                 title: "Something went wrong",
+    //                 showConfirmButton: false,
+    //                 timer: 1500
+    //             });
+    //         }
+    //     } catch (error) {
+    //         console.error('Error signing in:', error);
+    //     }
+    // }
+
+    const handleSignIn = (modalId) => {
+        document.getElementById(modalId).showModal();
+
+    };
+
+    const handleCloseModal = (modalId, event) => {
+        event.preventDefault();
+        document.getElementById(modalId).close();
+    };
+
+    const handleSubmit = (modalId, event) => {
+        event.preventDefault();
+        document.getElementById(modalId).close();
+    };
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography className="flex justify-center" variant="h6" sx={{ my: 2 }}>
@@ -117,7 +131,7 @@ const NavBar = (props) => {
                         </ListItemButton>
                     </ListItem>
                 ))}
-                {
+                {/* {
                     session.status === "authenticated" ?
                         <>
                             <button className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 ' onClick={() => signOut('google')}>Sing out</button>
@@ -126,8 +140,31 @@ const NavBar = (props) => {
                         <>
                             <button className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 ' onClick={singInWithGoogle}>Sing In</button>
                         </>
-                }
-                {/* <button className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 ' onClick={singInWithGoogle}>Sing In</button> */}
+                } */}
+                {/* <button  onClick={(() => document.getElementById('my_modal_5').showModal(), handleSignIn)}>Sing In </button> */}
+                <button className='hover:underline flex justify-start items-start pl-4 w-full py-2 hover:bg-gray-200 ' onClick={() => handleSignIn('modal-1')}>
+                    Admin
+                </button>
+                <dialog id="modal-1" className="modal  modal-middle text-black ">
+                    <div className="modal-box">
+                        <h3 className="font-bold text-lg">Hello!</h3>
+                        <p className="py-4">There Is No Functionality yet</p>
+                        <div className=" w-full flex space-y-3 ">
+                            <form method="dialog space-y-3 space-y-3">
+                                <input type="password" placeholder='Your Pass' name='password' className='p-2 border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
+                                <div className='flex justify-between items-center'>
+                                    <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleSubmit('modal-1', e)}>
+                                        Submit
+                                    </button>
+                                    <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleCloseModal('modal-1', e)}>
+                                        Close
+                                    </button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
             </List>
         </Box>
     );
@@ -166,7 +203,7 @@ const NavBar = (props) => {
                                     {item.item}
                                 </Link>
                             ))}
-                            {
+                            {/* {
                                 session.status === "authenticated" ?
                                     <>
                                         <button className='hover:underline ' onClick={() => signOut('google')}>Sing Out</button>
@@ -175,8 +212,30 @@ const NavBar = (props) => {
                                     <>
                                         <button className='hover:underline ' onClick={singInWithGoogle}>Sing In</button>
                                     </>
-                            }
+                            } */}
+                            <button className='hover:underline' onClick={() => handleSignIn('modal-2')}>
+                                Admin
+                            </button>
+                            <dialog id="modal-2" className="modal-bottom w-fit sm:modal-middle text-black ">
+                                <div className="modal-box shadow-none w-full">
+                                    <h3 className="font-bold text-lg">Hello!</h3>
+                                    <p className="py-4">There Is No Functionality yet</p>
+                                    <div className=" w-full flex space-y-3 ">
+                                        <form method="dialog space-y-3 space-y-3">
+                                            <input type="password" name='password' placeholder='Your Pass' className='p-2 border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
+                                            <div className='flex justify-between items-center'>
+                                                <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleSubmit('modal-2', e)}>
+                                                    Submit
+                                                </button>
+                                                <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleCloseModal('modal-2', e)}>
+                                                    Close
+                                                </button>
 
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </dialog>
                         </Box>
                         <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
                             <IconButton aria-label="delete">
