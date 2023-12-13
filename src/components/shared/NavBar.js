@@ -94,8 +94,8 @@ const NavBar = (props) => {
                     // Handle error (e.g., show an error message)
                     Swal.fire({
                         position: "top-end",
-                        icon: "success",
-                        title: "Your Message has been send",
+                        icon: "error",
+                        title: "something error ",
                         showConfirmButton: false,
                         timer: 1500
                     });
