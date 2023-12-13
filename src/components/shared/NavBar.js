@@ -49,7 +49,7 @@ const navItems = [
 const NavBar = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const session = useSession();
+    
     // console.log(session.data);
 
     const handleDrawerToggle = () => {
@@ -58,7 +58,7 @@ const NavBar = (props) => {
     const singInWithGoogle = async () => {
         try {
             const response = await signIn('google');
-
+            const session = await  useSession();
 
             if (session.status === "authenticated") {
                 const user = session.data.user;
