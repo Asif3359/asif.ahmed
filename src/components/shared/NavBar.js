@@ -52,8 +52,7 @@ const NavBar = (props) => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const session = useSession();
     const router = useRouter();
-    const storedData = JSON.parse(localStorage.getItem('password'));
-    // console.log(storedData);
+    const storedData = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('password')) : null;
     const passwordRef = React.useRef(null);
     const adminPass = process.env.NEXT_PUBLIC_ADMIN_PASS;
 
@@ -69,7 +68,6 @@ const NavBar = (props) => {
             const userData = {
                 name: user.name,
                 email: user.email,
-                // Add other user properties as needed
             };
 
             const mongoResponse = await fetch('https://asif-server-site.vercel.app/users', {
@@ -116,16 +114,12 @@ const NavBar = (props) => {
         const password = form.elements.password.value;
 
 
-        // console.log(adminPass)
         if (adminPass === password) {
             console.log(password);
-            const dataToStore = { key: password }; // Replace with your actual data
+            const dataToStore = { key: password }; 
             localStorage.setItem('password', JSON.stringify(dataToStore));
             router.push('/admin');
             document.getElementById(modalId).close();
-        }
-        else {
-            localStorage.setItem('password', JSON.stringify(null));
         }
     }
 
@@ -135,10 +129,6 @@ const NavBar = (props) => {
 
     };
 
-    // const handleSubmit = (modalId, event) => {
-    //     event.preventDefault();
-    //     document.getElementById(modalId).close();
-    // };
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography className="flex justify-center" variant="h6" sx={{ my: 2 }}>
