@@ -63,7 +63,7 @@ const NavBar = (props) => {
         try {
             const response = await signIn('google');
             const user = session.data.user;
-            console.log(response);
+            // console.log(response);
 
             const userData = {
                 name: user.name,
@@ -115,7 +115,7 @@ const NavBar = (props) => {
 
 
         if (adminPass === password) {
-            console.log(password);
+            // console.log(password);
             const dataToStore = { key: password };
             localStorage.setItem('password', JSON.stringify(dataToStore));
             router.push('/admin');
@@ -132,7 +132,7 @@ const NavBar = (props) => {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography className="flex justify-center" variant="h6" sx={{ my: 2 }}>
-                <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
+                <Image src={myImage}  alt='my image' width={40} height={40} priority={true}  className=' w-14 h-14 rounded-full' ></Image>
             </Typography>
             <Divider />
             <List  >
@@ -210,7 +210,7 @@ const NavBar = (props) => {
                             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                         >
                             <IconButton aria-label="delete">
-                                <Image src={myImage} alt='my image' width={40} height={40} className='rounded-full' ></Image>
+                                <Image src={myImage} alt='my image' width={40} height={40} priority={true}  className=' w-14 h-14 rounded-full' ></Image>
                             </IconButton>
                         </Typography>
                         <Box sx={{ display: { xs: 'none', sm: 'flex', gap: 20 } }}>

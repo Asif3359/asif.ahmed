@@ -44,7 +44,7 @@ const Footer = () => {
                     <div className=' flex flex-col md:flex-row justify-between items-center '>
 
                         <div className='flex flex-col justify-center items-center md:flex-row' >
-                            <Image src={myImage} width={100} height={100} alt='my image' className='rounded-full' ></Image>
+                            <Image src={myImage} width={100} height={100} priority={true} alt='myimage' className='rounded-full' ></Image>
                         </div>
                         <div className='flex justify-center items-center'>
                             <Box className=" flex flex-col justify-center items-center" >
