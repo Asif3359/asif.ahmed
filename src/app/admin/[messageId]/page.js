@@ -1,5 +1,4 @@
 'use client'
-import UseReplayMessage from '@/components/Hooks/UseReplayMessage';
 import { useEffect, useState } from 'react';
 
 const EmailForm = ({ params }) => {
@@ -9,7 +8,7 @@ const EmailForm = ({ params }) => {
     const [submitEmail, setSubmitEmail] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/message/${params.messageId}`)
+        fetch(`https://asif-server-site.vercel.app/message/${params.messageId}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -24,7 +23,7 @@ const EmailForm = ({ params }) => {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:5000/replay', {
+            const response = await fetch('https://asif-server-site.vercel.app/replay', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
