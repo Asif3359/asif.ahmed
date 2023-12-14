@@ -132,7 +132,7 @@ const NavBar = (props) => {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography className="flex justify-center" variant="h6" sx={{ my: 2 }}>
-                <Image src={myImage}  alt='my image' width={40} height={40} priority={true}  className=' w-14 h-14 rounded-full' ></Image>
+                <Image src={myImage} alt='my image' width={40} height={40} priority={true} className=' w-14 h-14 rounded-full' ></Image>
             </Typography>
             <Divider />
             <List  >
@@ -162,8 +162,7 @@ const NavBar = (props) => {
                 <dialog id="modal-1" className="modal  modal-middle text-black ">
                     <div className="modal-box">
                         <div className='flex justify-center items-center flex-col'>
-                            <h3 className="font-bold text-lg">Hello!</h3>
-                            <p className="py-4">There Is No Functionality yet</p>
+                            <h3 className="font-bold text-lg">Please Give Your Password</h3>
                         </div>
                         <div className=" w-full space-y-3 ">
                             <form onSubmit={(e) => handleFrom(e, 'modal-1')} method="dialog" className='space-y-3 flex  justify-center items-center flex-col'>
@@ -210,7 +209,7 @@ const NavBar = (props) => {
                             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                         >
                             <IconButton aria-label="delete">
-                                <Image src={myImage} alt='my image' width={40} height={40} priority={true}  className=' w-14 h-14 rounded-full' ></Image>
+                                <Image src={myImage} alt='my image' width={40} height={40} priority={true} className=' w-14 h-14 rounded-full' ></Image>
                             </IconButton>
                         </Typography>
                         <Box sx={{ display: { xs: 'none', sm: 'flex', gap: 20 } }}>
@@ -232,25 +231,26 @@ const NavBar = (props) => {
                             <button className='hover:underline' onClick={() => handleSignIn('modal-2')}>
                                 Admin
                             </button>
-                            <dialog id="modal-2" className="modal-bottom w-fit sm:modal-middle text-black ">
-                                <div className="modal-box shadow-none w-full ">
-                                    <div className='flex justify-center items-center flex-col'>
-                                        <h3 className="font-bold text-lg">Hello!</h3>
-                                        <p className="py-4 text-center">There Is No Functionality yet</p>
-                                    </div>
-                                    <div className=" w-full flex space-y-3 ">
-                                        <form onSubmit={(e) => handleFrom(e, 'modal-2')} className=' space-y-3 flex justify-center items-center flex-col' method="dialog">
-                                            <input type="password" name='password' placeholder='Your Pass' className='p-2 w-full border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
-                                            <div className='flex justify-center gap-3 items-center'>
-                                                <input type="submit" value='submit' className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" />
-                                                {/* Submit
+                            <dialog id="modal-2" className="modal w-full flex justify-center items-center  modal-middle text-black ">
+                                <div className=" modal-box w-full ">
+                                    <div>
+                                        <div className='flex justify-center items-center flex-col'>
+                                            <h3 className="font-bold text-center text-lg">Please Give Your Password</h3>
+                                        </div>
+                                        <div className="  w-full  space-y-3 ">
+                                            <form onSubmit={(e) => handleFrom(e, 'modal-2')} className=' space-y-3 flex justify-center items-center flex-col' method="dialog">
+                                                <input type="password" name='password' placeholder='Your Pass' className='p-2 w-full border-2 border-black rounded-lg text-black focus:text-white my-2 focus:bg-black' />
+                                                <div className='flex justify-start  gap-3 items-center'>
+                                                    <input type="submit" value='submit' className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" />
+                                                    {/* Submit
                                                 </button> */}
-                                                <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleCloseModal('modal-2', e)}>
-                                                    Close
-                                                </button>
+                                                    <button className="btn btn-sm bg-white border-black hover:bg-black hover:border-white text-black hover:text-white" onClick={(e) => handleCloseModal('modal-2', e)}>
+                                                        Close
+                                                    </button>
 
-                                            </div>
-                                        </form>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </dialog>
