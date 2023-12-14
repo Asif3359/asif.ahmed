@@ -54,7 +54,6 @@ const NavBar = (props) => {
     const router = useRouter();
     const storedData = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('password')) : null;
     const passwordRef = React.useRef(null);
-    const adminPass = process.env.NEXT_PUBLIC_ADMIN_PASS;
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
@@ -114,11 +113,14 @@ const NavBar = (props) => {
         const password = form.elements.password.value;
 
 
-        if (adminPass === password) {
+        if (process.env.NEXT_PUBLIC_ADMIN_PASS === password) {
             // console.log(password);
             const dataToStore = { key: password };
             localStorage.setItem('password', JSON.stringify(dataToStore));
             router.push('/admin');
+            document.getElementById(modalId).close();
+        }
+        else{
             document.getElementById(modalId).close();
         }
     }

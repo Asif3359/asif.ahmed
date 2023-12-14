@@ -7,7 +7,7 @@ import Asif from "@/assets/my-image.jpg"
 
 const AboutHome = () => {
     return (
-        <div className='container mx-auto my-5 px-1  w-full '>
+        <div className='container mx-auto my-5 px-2  w-full '>
             <div className='flex flex-col-reverse lg:flex-row gap-10 justify-between items-center md:p-5 '>
                 <div className='w-full lg:w-2/5 rounded-lg'>
                     <Image className='rounded-full' src={Asif} width={1000} height={400} alt="My Cover" />

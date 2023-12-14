@@ -5,6 +5,7 @@ const EmailForm = ({ params }) => {
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
+    const [selectStatus, setSelectStatus] = useState(false);
     const [submitEmail, setSubmitEmail] = useState({});
 
     useEffect(() => {
@@ -28,7 +29,7 @@ const EmailForm = ({ params }) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, subject, message }),
+                body: JSON.stringify({ email, subject, message, submitEmail, selectStatus }),
             });
 
             const data = await response.json();
@@ -49,9 +50,11 @@ const EmailForm = ({ params }) => {
     return (
         <div className='container mx-auto mt-5 min-h-[80vh] flex flex-col md:flex-row md:items-start py-5 gap-5 justify-center items-center  lg:mt-10'>
 
-            <div className=' w-full md:w-2/5'>
+            <div className=' w-full md:w-2/5  flex flex-col  '>
                 <h1 className='font-bold text-2xl'>Message :</h1>
-                <p>{submitEmail.message} </p>
+                <div>
+                    <p>{submitEmail.message} </p>
+                </div>
             </div>
 
             <form onSubmit={handleSubmit} className="bg-black flex-1 text-white p-1 md:p-5 rounded shadow mx-auto w-full md:w-3/4 ">

@@ -9,11 +9,11 @@ const PrivateRoute = ({ children }) => {
   useEffect(() => {
 
     // Replace 'yourActualAdminPassword' with the actual admin password
-    if (storedData.key === process.env.NEXT_PUBLIC_ADMIN_PASS) {
+    if (storedData?.key === process.env.NEXT_PUBLIC_ADMIN_PASS) {
       setIsAdmin(true);
     } else {
+      router.push('/');
       setIsAdmin(false);
-      router.push('/'); // Redirect to another route if not admin
     }
   }, [storedData, router]);
 

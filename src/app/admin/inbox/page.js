@@ -25,7 +25,7 @@ const page = async () => {
                                 <h2 className="card-title">{item.name} </h2>
                                 <p>{item.email}</p>
                                 <p>{item.message}</p>
-                                <div className="card-actions justify-end">
+                                <div className="card-actions  justify-end">
                                     <Link href={`/admin/${item._id}`} className="btn btn-sm bg-black hover:bg-white border-white hover:border-black text-white hover:text-black">Replay</Link>
                                     {/* <HandleSelect item={item}></HandleSelect> */}
                                 </div>

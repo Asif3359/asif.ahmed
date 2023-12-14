@@ -21,7 +21,7 @@ const Accordion = styled((props) => (
 
 const AccordionSummary = styled((props) => (
   <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' ,color:"white" }} />}
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem', color: "white" }} />}
     {...props}
   />
 ))(({ theme }) => ({
@@ -43,7 +43,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
 
-const ShowQuestion=()=> {
+const ShowQuestion = () => {
   const [expanded, setExpanded] = React.useState('panel1');
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -51,7 +51,7 @@ const ShowQuestion=()=> {
   };
 
   return (
-    <div>
+    <div className=' w-full lg:w-3/5'>
       <Accordion className="bg-white" expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary className=" bg-black text-white" aria-controls="panel1d-content" id="panel1d-header">
           <Typography >Collapsible Group Item #1</Typography>

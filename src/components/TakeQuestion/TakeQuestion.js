@@ -1,102 +1,11 @@
-'use client'
-import { useState } from 'react';
-import Swal from 'sweetalert2';
+import Image from "next/image";
+import Question from '@/assets/question.png'
 
 const TakeQuestion = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: '',
-    });
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('https://asif-server-site.vercel.app/question', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-            if (response.ok) {
-                console.log(response);
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Your Message has been send",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                setFormData({
-                    name: '',
-                    email: '',
-                    message: '',
-                });
-            } else {
-                // console.error('Submission failed');
-                Swal.fire({
-                    position: "top-end",
-                    icon: "error",
-                    title: "Something Error to send",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
-        } catch (error) {
-            console.error('Error submitting form:', error);
-        }
-    };
 
     return (
-        <div id='contact' className='   w-full rounded-lg '>
-            <form onSubmit={handleSubmit} className='space-y-3 bg-black px-8 rounded-lg py-7  text-white' >
-                <div>
-                    <label htmlFor="name" className='py-2' >Enter Your Name :</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className='border-2 text-black border-black w-full rounded-lg py-1  Your Name '
-                        placeholder='your Name'
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor="email" className='py-2'>Enter Your Email :</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className='border-2 text-black border-black w-full rounded-lg py-1'
-                        placeholder='your Email'
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor="message">Write Your Message :</label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                        className='border-2 text-black border-black w-full rounded-lg '
-                        placeholder='your Text - - - - -'
-                    />
-                </div>
-                <input type="submit" value="Send Email" className='btn btn-sm w-full bg-black text-white border-white hover:text-black hover:border-black hover:bg-white ' />
-            </form>
+        <div className='w-full rounded-full bg-white lg:w-2/5  mx-auto  '>
+            <Image src={Question} width={500} height={500} alt="Question Image" className="  w-4/5 h-4/5   rounded-full  mx-auto " ></Image>
         </div>
     );
 };
