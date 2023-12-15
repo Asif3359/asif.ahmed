@@ -6,6 +6,7 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
+import EastIcon from '@mui/icons-material/East';
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -44,7 +45,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 const ShowQuestion = ({ question }) => {
-  const [expanded, setExpanded] = React.useState('panel1');
+  const [expanded, setExpanded] = React.useState(0);
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -53,9 +54,9 @@ const ShowQuestion = ({ question }) => {
   return (
     <div className=' w-full lg:w-3/5'>
       {
-        question.slice(-3).reverse().map((item, index) => <Accordion key={index} className="bg-white" expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        question.slice(-3).reverse().map((item, index) => <Accordion key={index} className="bg-white" expanded={expanded === index} onChange={handleChange(index)}>
           <AccordionSummary className=" bg-black text-white" aria-controls="panel1d-content" id="panel1d-header">
-            <Typography >{item.Question}</Typography>
+            <Typography >  Email:{item.userEmail} <EastIcon></EastIcon> {item.Question}</Typography>
           </AccordionSummary>
           <AccordionDetails className='bg-white'>
             <Typography>
