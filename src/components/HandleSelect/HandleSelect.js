@@ -4,10 +4,12 @@ const HandleSelect = ({ item }) => {
 
     const handleSelectHandle = async () => {
         const selectInfo = {
-            email: item.email,
-            name: item.name,
-            message: item.message,
-            emailID: item._id
+            userName: item.submitEmail.name,
+            userEmail: item.email,
+            myEmail: item.myEmail,
+            Question: item.submitEmail.message,
+            AnsWer: item.message,
+            selectId: item._id
         }
 
         const mongoResponse = await fetch('https://asif-server-site.vercel.app/question', {
@@ -17,12 +19,24 @@ const HandleSelect = ({ item }) => {
             },
             body: JSON.stringify(selectInfo),
         });
-        if (mongoResponse.ok) {
-            alert("Post Successfully");
+        const mongoUpdate = await fetch(`https://asif-server-site.vercel.app/updateStatus/${item._id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(selectInfo),
+        });
+        if (mongoUpdate.ok && mongoResponse.ok) {
+            alert('Update and Post Successful');
+        } else if (mongoUpdate.ok) {
+            alert('Update Successful, but something went wrong with the post');
+        } else if (mongoResponse.ok) {
+            alert('Post Successful, but something went wrong with the update');
+        } else {
+            alert('Something went wrong with both the update and the post');
         }
-        if (!mongoResponse.ok) {
-            alert("Something Error ");
-        }
+
+
 
     }
 

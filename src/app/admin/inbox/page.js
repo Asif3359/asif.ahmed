@@ -1,12 +1,12 @@
 import HandleSelect from '@/components/HandleSelect/HandleSelect';
-import UseMessage from '@/components/Hooks/UseMessage';
+import UseReplay from '@/components/Hooks/UseReplay';
 import PrivateRoute from '@/components/PrivateRoute/PrivateRoute';
 import Link from 'next/link';
 import React from 'react';
 
 const page = async () => {
 
-    const messages = await UseMessage()
+    const messages = await UseReplay()
     return (
         <div>
             <div className=' container mx-auto mt-5 lg:mt-10'>
@@ -23,11 +23,17 @@ const page = async () => {
                         messages.slice().reverse().map((item, index) => <div key={item._id} className=" border-b-2 border-black w-full  ">
                             <div className="card-body">
                                 <h2 className="card-title">{item.name} </h2>
-                                <p>{item.email}</p>
-                                <p>{item.message}</p>
+                                <p> <span className='font-bold'> Name: </span> {item.submitEmail.name}</p>
+                                <p> <span className='font-bold'> User: </span>{item.email}</p>
+                                <p> <span className='font-bold'> MyEmail: </span>{item.myEmail}</p>
+                                <p> <span className='font-bold'> Question: </span> {item.submitEmail.message}</p>
+                                <p> <span className='font-bold'> Answer: </span> {item.message}</p>
                                 <div className="card-actions  justify-end">
-                                    <Link href={`/admin/${item._id}`} className="btn btn-sm bg-black hover:bg-white border-white hover:border-black text-white hover:text-black">Replay</Link>
-                                    {/* <HandleSelect item={item}></HandleSelect> */}
+                                    {/* <Link href={`/admin/${item._id}`} className="btn btn-sm bg-black hover:bg-white border-white hover:border-black text-white hover:text-black">Replay</Link> */}
+                                    {
+                                        item.selectStatus==true ?<><button>Selected</button></>:<> <HandleSelect item={item}></HandleSelect></>
+                                    }
+                                   
                                 </div>
                             </div>
                         </div>)
