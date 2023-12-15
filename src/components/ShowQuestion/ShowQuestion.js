@@ -43,7 +43,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
 
-const ShowQuestion = () => {
+const ShowQuestion = ({ question }) => {
   const [expanded, setExpanded] = React.useState('panel1');
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -52,19 +52,18 @@ const ShowQuestion = () => {
 
   return (
     <div className=' w-full lg:w-3/5'>
-      <Accordion className="bg-white" expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary className=" bg-black text-white" aria-controls="panel1d-content" id="panel1d-header">
-          <Typography >Collapsible Group Item #1</Typography>
-        </AccordionSummary>
-        <AccordionDetails className='bg-white'>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      {
+        question.slice(-3).reverse().map((item, index) => <Accordion key={index} className="bg-white" expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+          <AccordionSummary className=" bg-black text-white" aria-controls="panel1d-content" id="panel1d-header">
+            <Typography >{item.Question}</Typography>
+          </AccordionSummary>
+          <AccordionDetails className='bg-white'>
+            <Typography>
+              {item.AnsWer}
+            </Typography>
+          </AccordionDetails>
+        </Accordion>)
+      }
     </div>
   );
 }
