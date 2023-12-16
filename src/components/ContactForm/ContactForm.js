@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -17,6 +19,11 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setFormData({
+            name: '',
+            email: '',
+            message: '',
+        });
         try {
             const response = await fetch('https://asif-server-site.vercel.app/submit', {
                 method: 'POST',
@@ -27,26 +34,28 @@ const ContactForm = () => {
             });
             if (response.ok) {
                 console.log(response);
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Your Message has been send",
-                    showConfirmButton: false,
-                    timer: 1500
+                toast.success('Send Successfully', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
                 });
-                setFormData({
-                    name: '',
-                    email: '',
-                    message: '',
-                });
+
             } else {
                 // console.error('Submission failed');
-                Swal.fire({
-                    position: "top-end",
-                    icon: "error",
-                    title: "Something Error to send",
-                    showConfirmButton: false,
-                    timer: 1500
+                toast.error('Something Error to Send Email', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
                 });
             }
         } catch (error) {

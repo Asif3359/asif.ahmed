@@ -9,7 +9,7 @@ const page = async () => {
     const messages = await UseReplay()
     return (
         <div>
-            <div className=' container mx-auto mt-5 lg:mt-10'>
+            <div className=' container mx-auto mt-5 lg:mt-10 overflow-x-hidden  overflow-scroll h-screen '>
                 <div className="flex flex-col md:flex-row gap-4 lg:gap-10 justify-center items-center my-2">
                     <div >
                         <h1 className=' text-xl lg:text-4xl font-bold'> Welcome</h1>

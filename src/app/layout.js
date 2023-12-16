@@ -1,11 +1,10 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Box, Toolbar, Typography } from '@mui/material'
+import { Box, Toolbar } from '@mui/material'
 import NavBar from '@/components/shared/NavBar'
 import Footer from '@/components/shared/Footer'
-import NoSsr from '@/components/NoSsrc/NoSsr'
 import AuthProvider from '@/components/AuthProvider/AuthProvider'
-import Head from 'next/head'
+import { ToastContainer } from 'react-toastify';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,9 +17,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Head>
-          <title>Home</title>
-        </Head>
         <Box>
           <AuthProvider>
             <NavBar></NavBar>
@@ -33,6 +29,7 @@ export default function RootLayout({ children }) {
         <Box component="footer" >
           <Footer></Footer>
         </Box>
+        <ToastContainer />
 
       </body>
     </html>
