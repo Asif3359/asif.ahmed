@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react';
-const HandleDelete = ({ item }) => {
+import { toast } from 'react-toastify';
+const HandleDelete = ({ item, setEmailMessage, emailMessage }) => {
     const [isDelete, setDelete] = useState(false);
 
     const handleDelete = async (id) => {
@@ -13,8 +14,32 @@ const HandleDelete = ({ item }) => {
                 },
             });
             if (response.ok) {
-                alert("Delete Successfully");
+                // alert("Delete Successfully");
+                toast.success('Delete Successfully', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+                const remaining = emailMessage.filter(item => item._id !== id);
+                setEmailMessage(remaining);
                 setDelete(true)
+            }
+            else {
+                toast.error('Something Error ', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
 
         } catch (error) {
@@ -31,7 +56,7 @@ const HandleDelete = ({ item }) => {
             {
                 isDelete ?
                     <>
-                        <button  className="btn btn-sm bg-white hover:border-white hover:bg-white border-white  text-black ">Deleted</button>
+                        <button className="btn btn-sm bg-white hover:border-white hover:bg-white border-white  text-black ">Deleted</button>
                     </>
                     :
                     <>

@@ -16,14 +16,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body  className={inter.className}>
         <Box>
           <AuthProvider>
             <NavBar></NavBar>
           </AuthProvider>
         </Box>
         <Toolbar />
-        <Box component="main" sx={{ margin: "auto", minHeight: "100vh" }}  >
+        <Box component="main" sx={{ margin: "auto", minHeight: "100vh" }}   >
           {children}
         </Box>
         <Box component="footer" >
