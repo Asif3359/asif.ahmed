@@ -40,24 +40,27 @@ const HomeMap = ({ apiKey }) => {
     };
 
     return (
-        <div >
+        <div className=' mx-20'>
             <div className='container mx-auto  w-full space-y-3 justify-start items-center text-4xl font-bold'>
-                <h1>Visit me</h1>
+                <h1>Visit Me</h1>
             </div>
-            <div className='container mx-auto  w-full space-y-3 justify-center items-center text-center mb-10 '>
-                <LoadScript googleMapsApiKey={apiKey}>
-                    <GoogleMap
-                        mapContainerStyle={mapStyles}
-                        zoom={13}
-                        center={defaultCenter}
-                        onClick={handleMapClick}
-                        options={mapOptions}
-                    >
-                        <Marker
-                            position={{ lat: selectedLocation.lat, lng: selectedLocation.lng }}
-                        />
-                    </GoogleMap>
-                </LoadScript></div>
+            <div >
+                <div className='container mx-auto  w-full space-y-3 justify-center items-center text-center mb-10 '>
+                    <LoadScript googleMapsApiKey={apiKey}>
+                        <GoogleMap
+                            mapContainerStyle={mapStyles}
+                            zoom={13}
+                            center={defaultCenter}
+                            onClick={handleMapClick}
+                            options={mapOptions}
+                        >
+                            <Marker
+                                position={{ lat: selectedLocation.lat, lng: selectedLocation.lng }}
+                            />
+                        </GoogleMap>
+                    </LoadScript>
+                </div>
+            </div>
         </div>
     );
 };
