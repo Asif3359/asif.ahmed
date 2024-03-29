@@ -4,8 +4,8 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const HomeMap = ({ apiKey }) => {
     const [selectedLocation, setSelectedLocation] = useState({
-        lat: 23.797558598321668, // Default latitude
-        lng: 90.38292317531582  // Default longitude
+        lat: 23.79754623231896, // Default latitude
+        lng: 90.38298793137074  // Default longitude
     });
 
     const mapStyles = {
@@ -14,7 +14,7 @@ const HomeMap = ({ apiKey }) => {
     };
 
     const defaultCenter = {
-        lat: 23.797558598321668, // Default latitude
+        lat: 23.79754623231896, // Default latitude
         lng: 90.38292317531582  // Default longitude
     };
 
