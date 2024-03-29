@@ -1,6 +1,7 @@
 import AboutHome from "@/components/About/AboutHome";
 import Banner from "@/components/Banner/Banner";
 import ContactForm from "@/components/ContactForm/ContactForm";
+import HomeMap from "@/components/HomeMap/HomeMap";
 import UseQuestion from "@/components/Hooks/UseQuestion";
 import useProjects from "@/components/Hooks/useProjects";
 import ProjectHome from "@/components/ProjectHome/ProjectHome";
@@ -16,6 +17,7 @@ const HomePage = async () => {
 
   // console.log(Projects);
   const question = await UseQuestion();
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   return (
     <Box component="section" >
@@ -31,6 +33,9 @@ const HomePage = async () => {
       <div className=" container mx-auto flex justify-between flex-col md:flex-row items-center lg:items-center  p-3 lg:gap-10">
         <ContactDetails></ContactDetails>
         <ContactForm></ContactForm>
+      </div>
+      <div>
+        <HomeMap apiKey={apiKey}></HomeMap>
       </div>
     </Box>
   );
